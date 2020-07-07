@@ -11,7 +11,7 @@
 " =================================================================================================
 
 " Base Situation
-language en_US                        " Base Language
+" language en                         " Base Language
 set nocompatible                      " vim, not vi
 syntax on                             " syntax highlighting
 filetype plugin indent on             " try to recognise filetype and load plugins and indent files
@@ -131,9 +131,6 @@ augroup omnifuncs
   autocmd FileType css,scss,sass setlocal omnifunc=csscomplete#CompleteCSS noci
 augroup end
 
-" Sometimes deoplete dies on my MBP
-autocmd FileType vim call deoplete#custom#buffer_option('auto_complete', v:false)
-
 " ==================================================================================================
 " Searching
 " ==================================================================================================
@@ -149,5 +146,5 @@ if executable('ag')
   nnoremap \ :Ag<SPACE>
 endif
 
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python'

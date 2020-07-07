@@ -17,7 +17,6 @@ Plug 'sheerun/vim-polyglot'                                         " Syntax Hig
 Plug 'godlygeek/tabular'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ap/vim-css-color'
-Plug 'shelldandy/kwm.vim'
 Plug 'shelldandy/shopify.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -25,18 +24,8 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-Plug 'fszymanski/deoplete-emoji'
 Plug 'Shougo/neco-vim'
 Plug 'othree/csscomplete.vim'
-" Plug 'mhartington/nvim-typescript'
 
 " Javascript
 Plug 'styled-components/vim-styled-components'                      " Vim Styled Components
@@ -51,19 +40,9 @@ Plug 'ternjs/tern_for_vim', {
   \   'for': ['javascript', 'javascript.jsx']
   \   }
 " Wanna be autocomplete-paths
-Plug 'Galooshi/vim-import-js', {
-  \   'do': 'yarn global add import-js'
-  \   }
 Plug 'othree/jspc.vim'
-Plug 'carlitux/deoplete-ternjs', {
-  \   'do': 'yarn global add tern',
-  \   'for': ['Javascript', 'javascript.jsx']
-  \   }
 Plug 'heavenshell/vim-jsdoc'                                        " JSDocs on Demand
 Plug 'rhysd/vim-fixjson'                                            " Autofix json
-Plug 'yardnsm/vim-import-cost', {
-  \  'do': 'npm install'
-  \ }
 
 " General/Movement
 Plug 'ervandew/supertab'                                            " Tab autocomplete
