@@ -13,6 +13,9 @@ Plug 'reedes/vim-colors-pencil'                                     " iA Writer 
 Plug 'junegunn/seoul256.vim'
 
 " Syntax Highlights
+if has_key(g:plugs, 'vim-polyglot')
+  let g:polyglot_disabled = ['markdown']
+endif
 Plug 'sheerun/vim-polyglot'                                         " Syntax Highlight and Snippets for tons of languages
 Plug 'godlygeek/tabular'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

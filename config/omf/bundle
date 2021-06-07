@@ -1,0 +1,10 @@
+package foreign-env
+package git-flow
+package license
+package node-binpath
+package wttr
+package z
+theme cbjohnson
+theme default
+theme ocean
+theme sushi
