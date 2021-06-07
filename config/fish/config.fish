@@ -15,6 +15,7 @@ set -x NNN_USE_EDITOR '1'
 set -x COMPOSE_HTTP_TIMEOUT '180' # Docker lol
 
 test -d $HOME/.bin ; and set PATH $HOME/.bin $PATH
+test -d $HOME/.local/bin ; and set PATH $HOME/.local/bin $PATH
 
 # Making syntax highlight work with Fish
 set hilite (which src-hilite-lesspipe.sh)
