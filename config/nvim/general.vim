@@ -27,6 +27,16 @@ set noswapfile
 set nobackup
 set nowb
 
+" Omni Completion" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType html,markdown,liquid setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css,scss,sass setlocal omnifunc=csscomplete#CompleteCSS noci
+set completeopt=menuone,preview,noinsert
+
 " interface
 syntax enable
 set termguicolors
@@ -61,7 +71,6 @@ set backspace=2                       " make backspace work like most other apps
 set mouse=a                           " enable mouse support
 set mousehide                         " hide the mouse cursor while typing
 set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap too
-set completeopt=longest,menuone,preview
 
 " whitespace
 " set expandtab                         " use spaces instead of tabs
@@ -125,10 +134,13 @@ augroup vimrcEx
   autocmd InsertLeave * set cursorline
 augroup END
 
-augroup omnifuncs
-  autocmd!
-  autocmd FileType html,markdown,liquid setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType css,scss,sass setlocal omnifunc=csscomplete#CompleteCSS noci
+" Close preview window
+augroup vimrc
+  if exists('##CompleteDone')
+    au CompleteDone * pclose
+  else
+    au InsertLeave * if !pumvisible() && (!exists('*getcmdwintype') || empty(getcmdwintype())) | pclose | endif
+  endif
 augroup end
 
 " ==================================================================================================
@@ -145,6 +157,3 @@ if executable('ag')
   " bind \ to grep shortcut
   nnoremap \ :Ag<SPACE>
 endif
-
-"let g:python_host_prog = '/usr/bin/python'
-"let g:python3_host_prog = '/usr/bin/python3'
