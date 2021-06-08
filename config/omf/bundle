@@ -2,6 +2,7 @@ package foreign-env
 package git-flow
 package license
 package node-binpath
+package nvm
 package wttr
 package z
 theme cbjohnson
