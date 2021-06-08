@@ -27,15 +27,16 @@ set noswapfile
 set nobackup
 set nowb
 
+set completeopt=menuone,preview
+
 " Omni Completion" Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType html,markdown,liquid setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css,scss,sass setlocal omnifunc=csscomplete#CompleteCSS noci
-set completeopt=menuone,preview,noinsert
 
 " interface
 syntax enable
@@ -113,6 +114,25 @@ set undolevels=1000                   " store 1000 undos
 if !&readonly && &modifiable
   set fileencoding=utf-8              " the encoding written to file
 endif
+
+" Binary
+set wildignore+=*.aux,*.out,*.toc
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.jar,*.pyc,*.rbc,*.class
+set wildignore+=*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
+set wildignore+=*.avi,*.m4a,*.mp3,*.oga,*.ogg,*.wav,*.webm
+set wildignore+=*.eot,*.otf,*.ttf,*.woff
+set wildignore+=*.doc,*.pdf
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+" Cache
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*.gem
+set wildignore+=.sass-cache
+set wildignore+=npm-debug.log
+" Compiled
+set wildignore+=*.marko.js
+set wildignore+=*.min.*,*-min.*
+" Temp/System
+set wildignore+=*.*~,*~
+set wildignore+=*.swp,.lock,.DS_Store,._*,tags.lock
 
 " =================================================================================================
 " Autocommands

@@ -17,7 +17,6 @@ if has_key(g:plugs, 'vim-polyglot')
   let g:polyglot_disabled = ['markdown']
 endif
 Plug 'sheerun/vim-polyglot'                                         " Syntax Highlight and Snippets for tons of languages
-Plug 'godlygeek/tabular'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ap/vim-css-color'
 Plug 'shelldandy/shopify.vim'
@@ -90,7 +89,6 @@ Plug 'iamcco/markdown-preview.nvim', {
   \   'do': 'cd app & yarn install'
   \   }
 Plug 'mattn/emmet-vim'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-sleuth'                                             " Detect indent style
 
 " Vim Ranger
