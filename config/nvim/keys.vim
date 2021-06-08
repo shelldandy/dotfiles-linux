@@ -49,10 +49,13 @@ endif
 
 " FZF
 if has_key(g:plugs, 'fzf.vim')
-  nnoremap <Leader>p :Files<CR>
-  nnoremap <Leader>f :Ag<space>
-  nnoremap <Leader>h :History<CR>
-  nnoremap <Leader>bb :Buffers<CR>
+  nnoremap <Leader>p              :Files<CR>
+  nnoremap <Leader>f              :Ag<space>
+  nnoremap <Leader>h              :History<CR>
+  nnoremap <Leader>bb             :Buffers<CR>
+  nnoremap <silent> <Leader>ag    :Ag <C-R><C-W><CR>
+  nnoremap <silent> <Leader>AG    :Ag <C-R><C-A><CR>
+  nnoremap <silent> <Leader>`     :Marks<CR>
 endif
 
 " Disabling the directional keys
@@ -80,13 +83,14 @@ nnoremap <leader>bq :bp <BAR> bd #<CR>
 
 " Git Controls Flow
 if has_key(g:plugs, 'vim-fugitive')
-  nnoremap <Leader>gaa :! git add .<CR>
-  nnoremap <Leader>gc :Gcommit<CR>
-  nnoremap <Leader>gp :Gpush<CR>
-  nnoremap <Leader>gs :Gstatus<CR>
-  nnoremap <Leader>gb :Gblame<CR>
-  nnoremap <Leader>gd :Gdiff<CR>
-  nnoremap <Leader>gvd :Gvdiff<CR>
+  nnoremap <Leader>gaa :Git add .<CR>
+  nnoremap <Leader>gat :Git add %<CR>
+  nnoremap <Leader>gc :Git commit<CR>
+  nnoremap <Leader>gp :Git push<CR>
+  nnoremap <Leader>gs :Git status<CR>
+  nnoremap <Leader>gb :Git blame<CR>
+  nnoremap <Leader>gd :Git diff<CR>
+  nnoremap <Leader>gvd :vdiff<CR>
   nnoremap <Leader>gw :Gwrite<CR>
 endif
 
@@ -136,10 +140,6 @@ if has_key(g:plugs, 'ranger.vim')
   let g:ranger_map_keys = 0
   map <leader>P :Ranger<CR>
 endif
-
-" Autocomplete Paths
-imap ,p <plug>(fzf-complete-file-ag)
-imap <c-x><c-f> <plug>(fzf-complete-path)
 
 nnoremap <Leader><Tab> :call TabToggle()<CR>
 nnoremap <Leader>wm :call WriteMode()<CR>

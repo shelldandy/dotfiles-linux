@@ -27,7 +27,7 @@ if has_key(g:plugs, 'ale')
 endif
 
 if has_key(g:plugs, 'supertab')
-  let g:SuperTabDefaultCompletionType = "<c-n>"
+  let g:SuperTabDefaultCompletionType = "context"
 endif
 
 if has_key(g:plugs, 'ultisnips')
@@ -46,61 +46,31 @@ if has_key(g:plugs, 'indentLine')
 endif
 
 if has_key(g:plugs, 'fzf.vim')
-  let g:fzf_layout = { 'down': '~35%' }
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
+  " https://github.com/junegunn/fzf/blob/master/man/man1/fzf.1#L211
+  let g:fzf_files_options =
+    \ '--color "border:#6699cc,info:#fabd2f" --preview "highlight -O ansi --force {} 2> /dev/null"'
 
-  if isdirectory(".git")
-      " if in a git project, use :GFiles
-      nmap <silent> <leader>t :GitFiles --cached --others --exclude-standard<cr>
-  else
-      " otherwise, use :FZF
-      nmap <silent> <leader>t :FZF<cr>
-  endif
-
-  nmap <silent> <leader>s :GFiles?<cr>
-
-  nmap <silent> <leader>r :Buffers<cr>
-  nmap <silent> <leader>e :FZF<cr>
-  nmap <leader><tab> <plug>(fzf-maps-n)
-  xmap <leader><tab> <plug>(fzf-maps-x)
-  omap <leader><tab> <plug>(fzf-maps-o)
-
-  " Insert mode completion
-  imap <c-x><c-k> <plug>(fzf-complete-word)
-  imap <c-x><c-f> <plug>(fzf-complete-path)
-  imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-  imap <c-x><c-l> <plug>(fzf-complete-line)
-
-  nnoremap <silent> <Leader>C :call fzf#run({
-  \   'source':
-  \     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
-  \         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
-  \   'sink':    'colo',
-  \   'options': '+m',
-  \   'left':    30
-  \ })<CR>
-
-  command! FZFMru call fzf#run({
-  \  'source':  v:oldfiles,
-  \  'sink':    'e',
-  \  'options': '-m -x +s',
-  \  'down':    '40%'})
-
-  command! -bang -nargs=* Find call fzf#vim#grep(
-      \ 'rg --column --line-number --no-heading --follow --color=always '.<q-args>.' || true', 1,
-      \ <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
-  command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-  command! -bang -nargs=? -complete=dir GitFiles
-      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-  function! RipgrepFzf(query, fullscreen)
-      let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-      let initial_command = printf(command_fmt, shellescape(a:query))
-      let reload_command = printf(command_fmt, '{q}')
-      let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-      call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-  endfunction
-
-  command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+  " Customize fzf colors to match your color scheme
+  let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Clear'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
+  let g:fzf_history_dir = '~/.local/share/fzf-history'
+  " Custom Ag command with preview window
+  command! -bang -nargs=* Ag
+    \ call fzf#vim#ag(<q-args>,
+    \                 fzf#vim#with_preview('right:45%'),
+    \                 <bang>0)
 endif
 
 if has_key(g:plugs, 'goyo.vim')
@@ -143,4 +113,7 @@ if has_key(g:plugs, 'vim-pandoc-syntax')
     \ 'js=javascript',
     \ 'viml=vim',
   \]
+endif
+
+if has_key(g:plugs, 'deoplete.nvim')
 endif

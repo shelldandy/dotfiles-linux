@@ -39,9 +39,9 @@ Plug 'styled-components/vim-styled-components', {
 Plug 'SirVer/ultisnips'                                             " Ultimate Snippets
 Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', {
-  \   'do': 'npm install --no-package-lock',
-  \   'for': ['javascript', 'javascript.jsx']
+  \   'do': 'npm install --no-package-lock'
   \   }
+Plug '1995eaton/vim-better-javascript-completion'
 " Wanna be autocomplete-paths
 Plug 'othree/jspc.vim'
 Plug 'heavenshell/vim-jsdoc'                                        " JSDocs on Demand
