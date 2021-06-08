@@ -1,4 +1,4 @@
-if has_key(g:plugs, 'matchtagalways')
+if HasPlug('matchtagalways')
   let g:mta_filetypes = {
     \ 'javascript.jsx': 1,
     \ 'html' : 1,
@@ -8,7 +8,7 @@ if has_key(g:plugs, 'matchtagalways')
     \ }
 endif
 
-if has_key(g:plugs, 'ale')
+if HasPlug('ale')
   let g:airline#extensions#ale#enabled = 1
 
   let g:ale_linters = {}
@@ -26,26 +26,26 @@ if has_key(g:plugs, 'ale')
   let g:ale_fixers['sql'] = ['pgformatter']
 endif
 
-if has_key(g:plugs, 'supertab')
+if HasPlug('supertab')
   let g:SuperTabDefaultCompletionType = "context"
 endif
 
-if has_key(g:plugs, 'ultisnips')
+if HasPlug('ultisnips')
   let g:UltiSnipsExpandTrigger="<C-j>"
 endif
 
-if has_key(g:plugs, 'vim-closetag')
+if HasPlug('vim-closetag')
   let g:closetag_filenames = "*.html,*.js,*.jsx,*.liquid,*.php"
   let g:closetag_emptyTags_caseSensitive = 1
 endif
 
-if has_key(g:plugs, 'indentLine')
+if HasPlug('indentLine')
   let g:indentLine_char = '┆'
   let g:indentLine_fileTypeExclude = ['help']
   let g:indentLine_bufNameExclude = ['NERD_tree.*']
 endif
 
-if has_key(g:plugs, 'fzf.vim')
+if HasPlug('fzf.vim')
   let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
   " https://github.com/junegunn/fzf/blob/master/man/man1/fzf.1#L211
   let g:fzf_files_options =
@@ -73,7 +73,7 @@ if has_key(g:plugs, 'fzf.vim')
     \                 <bang>0)
 endif
 
-if has_key(g:plugs, 'goyo.vim')
+if HasPlug('goyo.vim')
   let g:goyo_height = '100%'
   function! s:goyo_enter()
     set wrap linebreak
@@ -87,25 +87,25 @@ if has_key(g:plugs, 'goyo.vim')
   autocmd! User GoyoLeaver nested call <SID>goyo_leave()
 endif
 
-if has_key(g:plugs, 'emmet-vim')
+if HasPlug('emmet-vim')
   let g:user_emmet_install_global = 0
   autocmd FileType html,css,liquid,scss,javascript.jsx,javascript,htmldjango,less EmmetInstall
 endif
 
-if has_key(g:plugs, 'vim-localvimrc')
+if HasPlug('vim-localvimrc')
   " Don't ask me each time I load a lvimrc file
   let g:localvimrc_ask = 0
 endif
 
-if has_key(g:plugs, 'vim-lexical')
+if HasPlug('vim-lexical')
   autocmd FileType markdown,mkd call lexical#init()
 endif
 
-if has_key(g:plugs, 'vim-pandoc')
+if HasPlug('vim-pandoc')
   let g:pandoc#modules#disabled = ["folding"]
 endif
 
-if has_key(g:plugs, 'vim-pandoc-syntax')
+if HasPlug('vim-pandoc-syntax')
   let g:pandoc#syntax#codeblocks#embeds#langs = [
     \ 'csharp=cs',
     \ 'bash=sh',
@@ -115,5 +115,5 @@ if has_key(g:plugs, 'vim-pandoc-syntax')
   \]
 endif
 
-if has_key(g:plugs, 'deoplete.nvim')
+if HasPlug('deoplete.nvim')
 endif

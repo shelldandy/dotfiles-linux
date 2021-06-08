@@ -6,6 +6,7 @@ function TabToggle()
     set expandtab
   endif
 endfunction
+command TabToggle call TabToggle()
 
 " Switch between tabs and spaces
 function BackgroundToggle()
@@ -15,6 +16,7 @@ function BackgroundToggle()
     set background=light
   endif
 endfunction
+command BackgroundToggle call BackgroundToggle()
 
 " Show which syntax highlight is being applied to the current word
 function! <SID>SynStack()
@@ -35,6 +37,7 @@ function WriteMode()
     set wrap linebreak
   endif
 endfunction
+command WriteMode call WriteMode()
 
 function NumbersToggle()
   if &relativenumber
@@ -42,4 +45,8 @@ function NumbersToggle()
   else
     set relativenumber
   endif
+endfunction
+
+function HasPlug(plugin)
+  return has_key(g:plugs, a:plugin)
 endfunction

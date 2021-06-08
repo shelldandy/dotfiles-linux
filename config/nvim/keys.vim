@@ -111,7 +111,7 @@ vnoremap > >gv
 nnoremap <cr> o<esc>
 
 " reload vim config
-com -nargs=0 HardReload call HardReload()
+com HardReload call HardReload()
 nnoremap <Leader>r :silent! HardReload<CR>
 
 " clear search
