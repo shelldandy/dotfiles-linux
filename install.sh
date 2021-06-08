@@ -1,6 +1,8 @@
 # APT
 sudo apt update
 sudo apt install fish zsh
+# Life quality
+sudo apt install bat
 
 # Snap
 sudo apt install snapd

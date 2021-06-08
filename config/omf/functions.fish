@@ -13,6 +13,7 @@ function rst      ; exec fish ; end
 function v        ; nvim $argv ; end
 function g        ; git $argv ; end
 function dc       ; docker-compose $argv ; end
+function bat      ; batcat $argv ; end
 function gs       ; git status ; end
 function gaa      ; git add . ; end
 function oa       ; open -a $argv ; end
@@ -92,12 +93,6 @@ function up-yabai
 end
 
 function update
-  echo 'Updating homebrew stuff...' | cowsay | lolcat -t
-  brew update
-  brew upgrade
-  brew cleanup
-  echo 'Updating casks' | cowsay | lolcat -t
-  brew upgrade --cask
   echo 'Updating Neovim...' | cowsay | lolcat -t
   nvim -c 'PlugUpdate' -c 'qa'
   set currentPath (pwd)
@@ -114,45 +109,6 @@ function update
   cd $currentPath
 end
 
-function cleanup
-  find . -type f -name '*.DS_Store' -ls -delete
-end
-
-# Enable/disable Shadow on screenshots
-function shadow
-  switch (echo $argv)
-    case disable
-      defaults write com.apple.screencapture disable-shadow -bool TRUE
-      killall SystemUIServer
-      echo '😵 Shadows have been disabled for screenshots'
-    case enable
-      defaults write com.apple.screencapture disable-shadow -bool FALSE
-      killall SystemUIServer
-      echo '👻 Shadows have been enabled for screenshots'
-    case '*'
-      echo 'Provide argument enable or disable'
-  end
-end
-
-function focus
-  open focus://focus
-  switch (echo $argv)
-    case enable
-      open focus://focus
-      echo '🧐  You have focused...'
-    case disable
-      open focus://unfocus
-      echo '🐔 You have unfocused...'
-    case '*'
-      open focus://toggle
-      echo '🚀 Toggled focus...'
-  end
-end
-
-function simulator
-  oa Simulator
-end
-
 function lolcow
   echo $argv | cowsay | lolcat
 end
@@ -167,23 +123,6 @@ function make_completion --argument-names alias command
     end
     " | .
     complete -c $alias -a "(__alias_completion_$alias)"
-end
-
-# Leeme
-function leeme
-  say -v Paulina $argv
-end
-
-function leepaste
-  pbpaste | leeme
-end
-
-function read2me
-  say -v Samantha $argv
-end
-
-function readpaste
-  pbpaste | read2me
 end
 
 function ydp
@@ -203,7 +142,7 @@ function yda
 end
 
 function man
-  command man $argv | bat
+  command man $argv | batcat
 end
 
 function my_ip

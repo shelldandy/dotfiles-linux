@@ -1,3 +1,3 @@
 # Dotfiles Linux Edition
 
-My dotfiles for my riced up Arch-Linux mean machine
+My dotfiles for my riced up Pop_OS! Machine
