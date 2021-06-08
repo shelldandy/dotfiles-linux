@@ -81,9 +81,7 @@ Plug 'vim-scripts/loremipsum'                                       " Lorem Ipsu
 Plug 'rizzatti/dash.vim'                                            " Dash Documentation
 Plug 'krisajenkins/vim-projectlocal'                                " Per Project Vim Files
 Plug 'embear/vim-localvimrc'
-Plug 'editorconfig/editorconfig-vim', {
- \    'do': 'brew install editorconfig'
- \    }
+Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'                                            " Focus mode like iA Writer
 Plug 'junegunn/limelight.vim'                                       " Limelight
 Plug 'metakirby5/codi.vim'

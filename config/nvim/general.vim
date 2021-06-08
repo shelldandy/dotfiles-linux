@@ -89,7 +89,7 @@ set exrc                              " Allow the use of per project .vimrc file
 set updatetime=250                    " timeout for plugins like gitgutter etc.
 set autoread                          " update file when changed outside of vim
 set autoindent                        " copy indentation from the previous line for new line
-set clipboard=unnamed                 " use native clipboard
+set clipboard+=unnamedplus            " use native clipboard
 set history=200                       " store last 200 commands as history
 set nobackup                          " don't save backups
 set noerrorbells visualbell t_vb=     " no error bells please
@@ -146,5 +146,5 @@ if executable('ag')
   nnoremap \ :Ag<SPACE>
 endif
 
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+"let g:python_host_prog = '/usr/bin/python'
+"let g:python3_host_prog = '/usr/bin/python3'

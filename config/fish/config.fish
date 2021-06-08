@@ -93,6 +93,5 @@ function fish_prompt
     echo -n -s $error_color $fish $normal_color " "
   end
 end
-set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+rvm default
