@@ -55,22 +55,6 @@ function mp3extract
   ffmpeg -i $argv $argv.mp3
 end
 
-# Add an extra slot in the dock for management purposes
-function dockspacer
-  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-  killall Dock
-end
-
-function yu
-  brew upgrade yarn
-end
-
-# Brew update and cleanup
-function bu
-  brew upgrade
-  brew cleanup
-end
-
 # Update nvm
 # https://github.com/creationix/nvm#install-script
 function nvm-update
@@ -78,18 +62,20 @@ function nvm-update
 end
 
 function update
-  echo 'Updating Neovim...' | cowsay | lolcat -t
+  lolcow 'Updating Neovim...'
   nvim -c 'PlugUpdate' -c 'qa'
-  echo 'Updating gems' | cowsay | lolcat -t
+  lolcow 'Updating gems'
   gem update
-  echo 'Updating pips' | cowsay | lolcat -t
+  lolcow 'Updating pips'
   pip list -o | cut -d " " -f 1 | tail -n +3 | xargs pip install -U
   pip3 list -o | cut -d " " -f 1 | tail -n +3 | xargs pip3 install -U
-  echo 'Back to business lets get it! #HUSTLE' | cowsay | lolcat -t
+  lolcow 'Back to business lets get it! #HUSTLE'
 end
 
 function lolcow
-  echo $argv | cowsay | lolcat
+  set cows_dir /usr/share/cowsay/cows
+  set avatar (ls $cows_dir | shuf -n1|cut -d'.' -f1)
+  echo $argv | cowsay -f $avatar | lolcat
 end
 
 # Completions
