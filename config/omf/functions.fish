@@ -26,8 +26,8 @@ function ydl      ; youtube-dl $argv ; end
 # Fun
 
 function moo # Random cowsay
-  set cows_dir /usr/local/Cellar/cowsay/3.04_1/share/cows
-  set avatar (ls $cows_dir | gshuf -n1|cut -d'.' -f1)
+  set cows_dir /usr/share/cowsay/cows
+  set avatar (ls $cows_dir | shuf -n1|cut -d'.' -f1)
   fortune | cowsay -f $avatar | lolcat -t
 end
 
@@ -77,36 +77,15 @@ function nvm-update
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
 end
 
-# Update Yabai
-function up-yabai
-  # stop, upgrade, start yabai
-  brew services stop yabai
-  brew upgrade yabai
-  brew services start yabai
-
-  # reinstall the scripting addition
-  sudo yabai --uninstall-sa
-  sudo yabai --install-sa
-
-  # load the scripting addition
-  killall Dock
-end
-
 function update
   echo 'Updating Neovim...' | cowsay | lolcat -t
   nvim -c 'PlugUpdate' -c 'qa'
-  set currentPath (pwd)
   echo 'Updating gems' | cowsay | lolcat -t
   gem update
   echo 'Updating pips' | cowsay | lolcat -t
   pip list -o | cut -d " " -f 1 | tail -n +3 | xargs pip install -U
   pip3 list -o | cut -d " " -f 1 | tail -n +3 | xargs pip3 install -U
-  echo 'Updating Yarn Packages...' | cowsay | lolcat -t
-  cd ~/.config/yarn/global
-  ncu -u
-  yarn
   echo 'Back to business lets get it! #HUSTLE' | cowsay | lolcat -t
-  cd $currentPath
 end
 
 function lolcow
