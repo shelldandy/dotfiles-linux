@@ -66,6 +66,7 @@ Plug 'wesQ3/vim-windowswap'                                         " Quickly sw
 Plug 'w0rp/ale'
 
 " Life Quality Stuff
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
 Plug 'vim-airline/vim-airline'                                      " Vim Airline
 Plug 'scrooloose/nerdcommenter'                                     " Nerd Commenter

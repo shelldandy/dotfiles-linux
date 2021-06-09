@@ -35,7 +35,7 @@ if HasPlug('supertab')
 endif
 
 if HasPlug('ultisnips')
-  let g:UltiSnipsExpandTrigger="<C-j>"
+  "let g:UltiSnipsExpandTrigger="<C-j>"
 endif
 
 if HasPlug('vim-closetag')
@@ -117,4 +117,8 @@ if HasPlug('vim-pandoc-syntax')
     \ 'js=javascript',
     \ 'viml=vim',
   \]
+endif
+
+if HasPlug('deoplete.nvim')
+  let g:deoplete#enable_at_startup = 1
 endif

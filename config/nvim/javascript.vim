@@ -19,10 +19,6 @@ if HasPlug('ultisnips')
   :imap ,uu <C-J>
 endif
 
-if HasPlug('deoplete.nvim')
-  autocmd InsertEnter * call deoplete#enable()
-endif
-
 if HasPlug('deoplete-ternjs')
   let g:deoplete#sources#ternjs#filetypes = [
   \ 'jsx',
@@ -32,7 +28,6 @@ if HasPlug('deoplete-ternjs')
 endif
 
 if HasPlug('tern_for_vim')
-  autocmd FileType javascript,javascript.jsx setlocal omnifunc=tern#Complete
   " Helpful commands from the docs
   nnoremap <Leader>td :TernDoc<CR>
   nnoremap <Leader>tb :TernDocBrowse<CR>

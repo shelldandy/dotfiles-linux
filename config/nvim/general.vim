@@ -15,7 +15,6 @@
 set nocompatible                      " vim, not vi
 syntax on                             " syntax highlighting
 filetype plugin indent on             " try to recognise filetype and load plugins and indent files
-set omnifunc=syntaxcomplete#Complete  " Addind omnifunc dics in general
 set encoding=utf8                     " Show all funky signs
 set backspace=indent,eol,start        " Make delete work on vim8
 " set shell=bash                        " Specify a POSIX shell since vim don't like 🐟
@@ -28,15 +27,6 @@ set nobackup
 set nowb
 
 set completeopt=menuone,preview,noinsert
-
-" Omni Completion" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript,javascript.jsx setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType html,markdown,liquid setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css,scss,sass setlocal omnifunc=csscomplete#CompleteCSS noci
 
 " interface
 syntax enable
