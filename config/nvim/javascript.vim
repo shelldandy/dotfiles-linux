@@ -37,7 +37,7 @@ if HasPlug('tern_for_vim')
   let g:tern#command = ["tern"]
   let g:tern#arguments = ["--persistent"]
   let g:tern_show_argument_hints = 'on_hold'
-  "autocmd FileType javascript,javascript.jsx setlocal omnifunc=ternjs#Complete
+  "autocmd FileType javascript,javascript.jsx setlocal omnifunc=tern#Complete
   " Helpful commands from the docs
   nnoremap <Leader>td :TernDoc<CR>
   nnoremap <Leader>tb :TernDocBrowse<CR>

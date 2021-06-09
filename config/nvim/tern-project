@@ -1,0 +1,15 @@
+{
+  "plugins": {
+    "modules": {},
+    "es_modules": {},
+    "node": {},
+    "doc_comment": {}
+  },
+  "libs": [
+    "browser",
+    "ecmascript",
+    "jquery",
+    "react"
+  ],
+  "ecmaVersion": 6
+}

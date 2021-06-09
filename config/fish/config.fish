@@ -1,6 +1,8 @@
 # Colors
 source ~/.themes/gruvbox-dark.sh
 
+theme_gruvbox dark
+
 # Exports
 set -x EDITOR nvim
 set -x TERM xterm-256color
