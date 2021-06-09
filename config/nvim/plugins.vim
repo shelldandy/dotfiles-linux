@@ -28,6 +28,10 @@ endif
 
 if HasPlug('supertab')
   let g:SuperTabDefaultCompletionType = "context"
+  " Make tab work top to bottom
+  " let g:SuperTabContextDefaultCompletionType = "<c-n>"
+  " Autoclose popup window
+  let g:SuperTabClosePreviewOnPopupClose = 1
 endif
 
 if HasPlug('ultisnips')
@@ -113,7 +117,4 @@ if HasPlug('vim-pandoc-syntax')
     \ 'js=javascript',
     \ 'viml=vim',
   \]
-endif
-
-if HasPlug('deoplete.nvim')
 endif
