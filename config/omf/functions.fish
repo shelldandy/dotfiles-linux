@@ -22,6 +22,7 @@ function rm       ; trash $argv ; end
 function ys       ; yarn add $argv ; end
 function yd       ; yarn add --dev $argv ; end
 function ydl      ; youtube-dl $argv ; end
+function icat     ; kitty +kitten icat $argv ; end
 
 # Fun
 
