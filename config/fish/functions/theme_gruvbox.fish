@@ -132,7 +132,7 @@ function __theme_gruvbox_palette
   __printf_color 136 'b5/76/14'
   __printf_color 24 '07/66/78'
   __printf_color 96 '8f/3f/71'
-  __printf_color 66 '42/7b/58'
+  __printf_color 65 '42/7b/58'
   __printf_color 130 'af/3a/03'
 end
 
