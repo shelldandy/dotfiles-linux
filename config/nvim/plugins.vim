@@ -34,10 +34,6 @@ if HasPlug('supertab')
   let g:SuperTabClosePreviewOnPopupClose = 1
 endif
 
-if HasPlug('ultisnips')
-  "let g:UltiSnipsExpandTrigger="<C-j>"
-endif
-
 if HasPlug('vim-closetag')
   let g:closetag_filenames = "*.html,*.js,*.jsx,*.liquid,*.php"
   let g:closetag_emptyTags_caseSensitive = 1
