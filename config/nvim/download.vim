@@ -56,13 +56,8 @@ Plug 'wesQ3/vim-windowswap'                                         " Quickly sw
 Plug 'w0rp/ale'
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'vim-scripts/L9'
-Plug 'othree/vim-autocomplpop'                                      " Magic Autocomplete
 Plug 'ervandew/supertab'                                            " Tab autocomplete
-Plug 'ternjs/tern_for_vim', {
-  \   'do': 'npm install --no-package-lock'
-  \   }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Others
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags

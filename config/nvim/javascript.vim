@@ -18,17 +18,3 @@ if HasPlug('ultisnips')
   :imap ,us <C-J>
   :imap ,uu <C-J>
 endif
-
-if HasPlug('deoplete-ternjs')
-  let g:deoplete#sources#ternjs#filetypes = [
-  \ 'jsx',
-  \ 'javascript.jsx',
-  \ 'vue',
-  \ ]
-endif
-
-if HasPlug('tern_for_vim')
-  " Helpful commands from the docs
-  nnoremap <Leader>td :TernDoc<CR>
-  nnoremap <Leader>tb :TernDocBrowse<CR>
-endif

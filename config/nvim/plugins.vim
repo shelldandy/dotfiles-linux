@@ -114,7 +114,3 @@ if HasPlug('vim-pandoc-syntax')
     \ 'viml=vim',
   \]
 endif
-
-if HasPlug('deoplete.nvim')
-  let g:deoplete#enable_at_startup = 1
-endif
