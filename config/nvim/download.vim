@@ -56,7 +56,6 @@ Plug 'wesQ3/vim-windowswap'                                         " Quickly sw
 Plug 'w0rp/ale'
 
 " Autocomplete
-Plug 'ervandew/supertab'                                            " Tab autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Others
