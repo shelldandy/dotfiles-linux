@@ -10,7 +10,6 @@ Plug 'reedes/vim-colors-pencil'                                     " iA Writer 
 " Syntax Highlights
 let g:polyglot_disabled = ['markdown']
 Plug 'sheerun/vim-polyglot'                                         " Syntax Highlight and Snippets for tons of languages
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ap/vim-css-color'
 Plug 'shelldandy/shopify.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -36,6 +35,7 @@ Plug 'rhysd/vim-fixjson'                                            " Autofix js
 
 " General/Movement
 Plug 'scrooloose/nerdtree'                                          " NerdTree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'jiangmiao/auto-pairs'                                         " Auto close brackets smartly
 Plug 'airblade/vim-gitgutter'                                       " Git Situation on my Lines like Atom
 Plug 'tpope/vim-fugitive'                                           " Vim Fugitive Awesome git shortcuts on vim
@@ -80,4 +80,7 @@ Plug 'tpope/vim-sleuth'                                             " Detect ind
 " Spellcheck powers
 Plug 'reedes/vim-lexical'
 Plug 'arecarn/vim-spell-utils'
+
+" Icons for NerdTree, make start slow...
+"Plug 'ryanoasis/vim-devicons'                                       " Vim Icons Load LAST
 call plug#end()
