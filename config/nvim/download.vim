@@ -40,7 +40,6 @@ Plug 'jiangmiao/auto-pairs'                                         " Auto close
 Plug 'airblade/vim-gitgutter'                                       " Git Situation on my Lines like Atom
 Plug 'tpope/vim-fugitive'                                           " Vim Fugitive Awesome git shortcuts on vim
 Plug 'gregsexton/gitv', {'on': ['Gitv']}                            " Vim Fugitive Git Log Extension
-Plug 'tpope/vim-unimpaired'                                         " Quickly move around buffers etc
 Plug 'brooth/far.vim'                                               " Search and replace
 Plug 'valloric/matchtagalways'
 Plug 'christoomey/vim-tmux-navigator'
@@ -81,6 +80,4 @@ Plug 'tpope/vim-sleuth'                                             " Detect ind
 " Spellcheck powers
 Plug 'reedes/vim-lexical'
 Plug 'arecarn/vim-spell-utils'
-
-Plug 'ryanoasis/vim-devicons'                                       " Vim Icons Load LAST
 call plug#end()
