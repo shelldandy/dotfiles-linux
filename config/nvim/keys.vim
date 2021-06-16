@@ -50,7 +50,7 @@ endif
 " FZF
 if HasPlug('fzf.vim')
   nnoremap <Leader>p              :Files<CR>
-  nnoremap <Leader>f              :Ag<space>
+  nnoremap <Leader>f              :Rg<space>
   nnoremap <Leader>h              :History<CR>
   nnoremap <Leader>bb             :Buffers<CR>
   nnoremap <silent> <Leader>ag    :Ag <C-R><C-W><CR>

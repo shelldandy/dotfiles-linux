@@ -1,10 +1,10 @@
 if $THEME_COLORS == 'oceanic-next'
-  if has_key(g:plugs, 'oceanic-next')
+  if HasPlug('oceanic-next')
     let g:oceanic_next_terminal_bold = 1
     let g:oceanic_next_terminal_italic = 1
     colorscheme OceanicNext
     " Airline Hacks
-    if has_key(g:plugs, 'vim-airline')
+    if HasPlug('vim-airline')
       let g:airline_theme='oceanicnext'
     endif
 
@@ -50,12 +50,12 @@ if $THEME_COLORS == 'oceanic-next'
     call OceanicColorsOverride()
   endif
 
-  if has_key(g:plugs, 'ale')
+  if HasPlug('ale')
     exe 'hi ALEErrorSign guifg=' . $VIM_ALE_ERROR_FG 'guibg=' . $VIM_ALE_ERROR_BG
     exe 'hi ALEWarningSign guifg=' . $VIM_ALE_WARNING_FG 'guibg=' . $VIM_ALE_WARNING_BG
   endif
 
-  if has_key(g:plugs, 'nerdtree')
+  if HasPlug('nerdtree')
     call NERDTreeHighlightFile('pug', 'green', 'none', 'green', '#1c2b34')
     call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#1c2b34')
     call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#1c2b34')
@@ -76,7 +76,7 @@ if $THEME_COLORS == 'oceanic-next'
 endif
 
 if $THEME_COLORS == 'gruvbox-dark'
-  if has_key(g:plugs, 'gruvbox')
+  if HasPlug('gruvbox')
     let g:gruvbox_italic = 1
     colorscheme gruvbox
     set background=dark
@@ -84,91 +84,91 @@ if $THEME_COLORS == 'gruvbox-dark'
     hi! link xmlTagN GruvboxBlue
   endif
 
-  if has_key(g:plugs, 'vim-airline')
+  if HasPlug('vim-airline')
     let g:airline_theme='gruvbox'
   endif
 
-  if has_key(g:plugs, 'ale')
+  if HasPlug('ale')
     exe 'highlight ALEErrorSign guifg=' . $VIM_ALE_ERROR_FG 'guibg=' . $VIM_ALE_ERROR_BG
     exe 'highlight ALEWarningSign guifg=' . $VIM_ALE_WARNING_FG 'guibg=' . $VIM_ALE_WARNING_BG
   endif
 endif
 
 if $THEME_COLORS == 'gruvbox-light'
-  if has_key(g:plugs, 'gruvbox')
+  if HasPlug('gruvbox')
     let g:gruvbox_italic = 1
     colorscheme gruvbox
     set background=light
   endif
 
-  if has_key(g:plugs, 'vim-airline')
+  if HasPlug('vim-airline')
     let g:airline_theme='gruvbox'
   endif
 
-  if has_key(g:plugs, 'ale')
+  if HasPlug('ale')
     exe 'highlight ALEErrorSign guifg=' . $VIM_ALE_ERROR_FG 'guibg=' . $VIM_ALE_ERROR_BG
     exe 'highlight ALEWarningSign guifg=' . $VIM_ALE_WARNING_FG 'guibg=' . $VIM_ALE_WARNING_BG
   endif
 endif
 
 if $THEME_COLORS == 'gotham'
-  if has_key(g:plugs, 'vim-gotham')
+  if HasPlug('vim-gotham')
     colorscheme gotham
   endif
 endif
 
 if $THEME_COLORS == 'onehalf-dark'
-  if has_key(g:plugs, 'onehalf')
+  if HasPlug('onehalf')
     colorscheme onehalfdark
   endif
 
-  if has_key(g:plugs, 'vim-airline')
+  if HasPlug('vim-airline')
     let g:airline_theme='onehalfdark'
   endif
 endif
 
 if $THEME_COLORS == 'vim-one'
-  if has_key(g:plugs, 'vim-one')
+  if HasPlug('vim-one')
     colorscheme one
     set background=dark
     let g:one_allow_italics = 1
   endif
 
-  if has_key(g:plugs, 'vim-airline')
+  if HasPlug('vim-airline')
     let g:airline_theme='one'
   endif
 endif
 
 if $THEME_COLORS == 'pencil'
-  if has_key(g:plugs, 'vim-colors-pencil')
+  if HasPlug('vim-colors-pencil')
     colorscheme pencil
     set background=light
   endif
 endif
 
 if $THEME_COLORS == 'pencil-dark'
-  if has_key(g:plugs, 'vim-colors-pencil')
+  if HasPlug('vim-colors-pencil')
     colorscheme pencil
     set background=dark
   endif
 endif
 
 if $THEME_COLORS == 'seoul'
-  if has_key(g:plugs, 'seoul256.vim')
+  if HasPlug('seoul256.vim')
     colorscheme seoul256-light
     set background=light
   endif
 endif
 
 if $THEME_COLORS == 'seoul-dark'
-  if has_key(g:plugs, 'seoul256.vim')
+  if HasPlug('seoul256.vim')
     let g:seoul256_background = 235
     colorscheme seoul256
     set background=dark
   endif
 endif
 
-if has_key(g:plugs, 'vim-colors-pencil')
+if HasPlug('vim-colors-pencil')
   " Neutral code background
   let g:pencil_terminal_italics = 1
   let g:airline_theme = 'pencil'

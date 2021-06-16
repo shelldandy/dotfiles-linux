@@ -157,13 +157,13 @@ augroup end
 " Searching
 " ==================================================================================================
 
-if executable('ag')
+if executable('rg')
   " use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=rg\ --nogroup\ --nocolor
 
   " define Ag command
-  command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  command! -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
 
   " bind \ to grep shortcut
-  nnoremap \ :Ag<SPACE>
+  nnoremap \ :Rg<SPACE>
 endif

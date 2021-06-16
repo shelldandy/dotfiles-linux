@@ -46,7 +46,7 @@ if HasPlug('indentLine')
 endif
 
 if HasPlug('fzf.vim')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
+  "let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
   " https://github.com/junegunn/fzf/blob/master/man/man1/fzf.1#L211
   let g:fzf_files_options =
     \ '--color "border:#6699cc,info:#fabd2f" --preview "highlight -O ansi --force {} 2> /dev/null"'
@@ -71,6 +71,11 @@ if HasPlug('fzf.vim')
     \ call fzf#vim#ag(<q-args>,
     \                 fzf#vim#with_preview('right:45%'),
     \                 <bang>0)
+
+  command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+    \   fzf#vim#with_preview(), <bang>0)
 endif
 
 if HasPlug('goyo.vim')
