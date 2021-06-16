@@ -1,5 +1,5 @@
 " NERDTree File highlighting
-if has_key(g:plugs, 'nerdtree')
+if HasPlug('nerdtree')
   function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
     exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
     exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
@@ -8,7 +8,7 @@ if has_key(g:plugs, 'nerdtree')
   let NERDTreeIgnore=['\.pyc$', '\.DS_Store$', 'tmp$[[dir]]', '\~$']
 endif
 
-if has_key(g:plugs, 'vim-devicons')
+if HasPlug('vim-devicons')
   " If you need to add an unicode first use like this: "\uE275"
   " then copy and paste the resulting one
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
@@ -17,7 +17,7 @@ if has_key(g:plugs, 'vim-devicons')
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['liquid'] = ''
 endif
 
-if has_key(g:plugs, 'vim-nerdtree-syntax-highlight')
+if HasPlug('vim-nerdtree-syntax-highlight')
   let s:brown = "905532"
   let s:aqua =  "3AFFDB"
   let s:blue = "689FB6"
@@ -46,4 +46,13 @@ if has_key(g:plugs, 'vim-nerdtree-syntax-highlight')
 
   " Show hidden files
   let NERDTreeShowHidden=1
+
+  " Highlight all the text
+  let g:NERDTreeFileExtensionHighlightFullName = 1
+  let g:NERDTreeExactMatchHighlightFullName = 1
+  let g:NERDTreePatternMatchHighlightFullName = 1
+endif
+
+if HasPlug('nerdtree-git-plugin')
+  let g:NERDTreeGitStatusUseNerdFonts = 1
 endif

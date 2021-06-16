@@ -35,6 +35,7 @@ Plug 'rhysd/vim-fixjson'                                            " Autofix js
 
 " General/Movement
 Plug 'scrooloose/nerdtree'                                          " NerdTree
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'jiangmiao/auto-pairs'                                         " Auto close brackets smartly
 Plug 'airblade/vim-gitgutter'                                       " Git Situation on my Lines like Atom
@@ -82,5 +83,5 @@ Plug 'reedes/vim-lexical'
 Plug 'arecarn/vim-spell-utils'
 
 " Icons for NerdTree, make start slow...
-"Plug 'ryanoasis/vim-devicons'                                       " Vim Icons Load LAST
+Plug 'ryanoasis/vim-devicons'                                       " Vim Icons Load LAST
 call plug#end()

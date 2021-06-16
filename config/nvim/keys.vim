@@ -42,13 +42,13 @@ nnoremap <Leader>wr <C-W><C-R>
 nnoremap <Leader>W :set wrap!<CR>
 
 " NerdTree
-if has_key(g:plugs, 'nerdtree')
+if HasPlug('nerdtree')
   nnoremap <Leader>n :NERDTreeToggle<CR>
   nnoremap <Leader>N :NERDTreeFind<CR>
 endif
 
 " FZF
-if has_key(g:plugs, 'fzf.vim')
+if HasPlug('fzf.vim')
   nnoremap <Leader>p              :Files<CR>
   nnoremap <Leader>f              :Ag<space>
   nnoremap <Leader>h              :History<CR>
@@ -82,7 +82,7 @@ nnoremap <Leader>h :bprevious<CR>
 nnoremap <leader>bq :bp <BAR> bd #<CR>
 
 " Git Controls Flow
-if has_key(g:plugs, 'vim-fugitive')
+if HasPlug('vim-fugitive')
   nnoremap <Leader>gaa :Git add .<CR>
   nnoremap <Leader>gat :Git add %<CR>
   nnoremap <Leader>gc :Git commit<CR>
@@ -117,26 +117,26 @@ nnoremap <Leader>r :silent! HardReload<CR>
 " clear search
 nnoremap <leader>c :let @/ = ""<CR>
 
-if has_key(g:plugs, 'ale')
+if HasPlug('ale')
   nnoremap <Leader>at :ALEToggle<Cr>
   nnoremap <Leader>an :ALENext<Cr>
   nnoremap <Leader>ap :ALEPrevious<Cr>
   nnoremap <Leader>af :ALEFix<CR>
 endif
 
-if has_key(g:plugs, 'goyo.vim')
+if HasPlug('goyo.vim')
   nnoremap <Leader>gg :Goyo<CR>
 endif
 
 nmap <leader>hi :call <SID>SynStack()<CR>
 
-if has_key(g:plugs, 'emmet-vim')
+if HasPlug('emmet-vim')
   let g:user_emmet_leader_key='<C-M>'
   nnoremap <Leader>em :call emmet#expandAbbr(0, "")<CR>
   :imap ,e <C-M>,
 endif
 
-if has_key(g:plugs, 'ranger.vim')
+if HasPlug('ranger.vim')
   let g:ranger_map_keys = 0
   map <leader>P :Ranger<CR>
 endif
@@ -168,7 +168,7 @@ nnoremap <Leader>0 :call NumbersToggle()<CR>
 " Search with // visually selected text
 vnoremap // y/<C-R>"<CR>
 
-if has_key(g:plugs, 'split-term.vim')
+if HasPlug('split-term.vim')
   nnoremap <Leader>t :Term<CR>
   nnoremap <Leader>vt :VTerm<CR>
   nnoremap <Leader>t- :Term<CR>
