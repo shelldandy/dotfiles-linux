@@ -152,18 +152,3 @@ augroup vimrc
     au InsertLeave * if !pumvisible() && (!exists('*getcmdwintype') || empty(getcmdwintype())) | pclose | endif
   endif
 augroup end
-
-" ==================================================================================================
-" Searching
-" ==================================================================================================
-
-if executable('rg')
-  " use ag over grep
-  set grepprg=rg\ --nogroup\ --nocolor
-
-  " define Ag command
-  command! -nargs=+ -complete=file -bar Rg silent! grep! <args>|cwindow|redraw!
-
-  " bind \ to grep shortcut
-  nnoremap \ :Rg<SPACE>
-endif
