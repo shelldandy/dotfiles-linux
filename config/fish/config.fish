@@ -16,9 +16,8 @@ set -x COMPOSE_HTTP_TIMEOUT '180' # Docker lol
 set     fish_greeting
 set -U  fish_user_paths ~/.bin
 set -gx FZF_DEFAULT_OPTS     '--height=50% --min-height=15 --reverse'
-set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
+set -gx FZF_DEFAULT_COMMAND  'rg --files --hidden'
 set -gx FZF_CTRL_T_COMMAND   $FZF_DEFAULT_COMMAND
-set -gx LPS_DEFAULT_USERNAME 'sidneyliebrand@gmail.com'
 set -gx EVENT_NOKQUEUE       1
 set -gx EDITOR               nvim
 

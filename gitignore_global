@@ -42,3 +42,6 @@ Thumbs.db
 
 # NodeJS
 node_modules
+
+# Python
+pyc
