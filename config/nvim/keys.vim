@@ -53,8 +53,8 @@ if HasPlug('fzf.vim')
   nnoremap <Leader>f              :Rg<space>
   nnoremap <Leader>h              :History<CR>
   nnoremap <Leader>bb             :Buffers<CR>
-  nnoremap <silent> <Leader>ag    :Ag <C-R><C-W><CR>
-  nnoremap <silent> <Leader>AG    :Ag <C-R><C-A><CR>
+  nnoremap <silent> <Leader>rg    :Rg <C-R><C-W><CR>
+  nnoremap <silent> <Leader>RG    :Rg <C-R><C-A><CR>
   nnoremap <silent> <Leader>`     :Marks<CR>
 endif
 
