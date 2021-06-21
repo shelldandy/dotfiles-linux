@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # APT
 sudo apt update
 sudo apt install fish zsh
