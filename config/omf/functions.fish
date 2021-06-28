@@ -122,3 +122,13 @@ end
 function removeExtension --argument-names "filename"
   echo (basename "$filename" | sed 's/\(.*\)\..*/\1/')
 end
+
+function cuda_fish_export --argument-names "filename"
+  set name (removeExtension $filename)
+  lolcow $name
+  if ffmpeg -hwaccel cuda -hwaccel_output_format cuda -y -i $filename -c:v hevc_nvenc -b:v 60M -movflags +faststart -pass 1 -an -f null /dev/null
+    ffmpeg -hwaccel cuda -hwaccel_output_format cuda -i $filename -c:v hevc_nvenc -b:v 60M -movflags +faststart -pass 2 -c:a aac -b:a 128k $name-cuda.mp4
+    # Cleanup
+    rm ffmpeg2pass-0.log
+  end
+end

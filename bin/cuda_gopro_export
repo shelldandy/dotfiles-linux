@@ -30,35 +30,42 @@ VIDEO_BITRATE=60M # Same bitrate GoPro 7 4k footages comes at
 AUDIO_CODEC=aac
 AUDIO_BITRATE=128k
 
-FFMPEG_PARAM=('-hwaccel' "$HWACCEL")
+FFMPEG_PARAM=('-vsync' "0")
+FFMPEG_PARAM+=('-hwaccel' "$HWACCEL")
 FFMPEG_PARAM+=('-hwaccel_output_format' "$HWACCEL")
 FFMPEG_PARAM+=('-y')
-
-if [[ $RESIZE ]]; then
-    if [[ $RESIZE == "1080" ]]; then
-        FFMPEG_PARAM+=('-resize' "1920x1080")
-    else
-        FFMPEG_PARAM+=('-resize' "$RESIZE")
-    fi
-fi
 
 FFMPEG_PARAM+=('-i' "$FILENAME")
 FFMPEG_PARAM+=('-v' "$VERBOSE")
 FFMPEG_PARAM+=('-c:v' "$VIDEO_CODEC")
+
+if [[ $RESIZE ]]; then
+    if [[ $RESIZE == "1080" ]]; then
+        FFMPEG_PARAM+=('-vf' "scale=1920:1080")
+    else
+        FFMPEG_PARAM+=('-vf' "scale=$RESIZE")
+    fi
+fi
+
 FFMPEG_PARAM+=('-b:v' "$VIDEO_BITRATE")
-# Optimize for web
-FFMPEG_PARAM+=('movflags' "+faststart")
+FFMPEG_PARAM+=('-movflags' "+faststart") # Web Optimized
 
 NAME=$(basename $FILENAME | sed 's/\(.*\)\..*/\1/')
 
 PASS_1_PARAMS=('-pass' '1')
-PASS_1_PARAMS+=('f' 'null')
+PASS_1_PARAMS+=('-an')
+PASS_1_PARAMS+=('-f' 'null')
 PASS_1_PARAMS+=('/dev/null')
 
 PASS_2_PARAMS=('-pass' '2')
 PASS_2_PARAMS+=('-c:a' "$AUDIO_CODEC")
 PASS_2_PARAMS+=('-b:a' "$AUDIO_BITRATE")
-PASS_2_PARAMS+=("$NAME-cuda.mp4")
+
+if [[ $RESIZE ]]; then
+    PASS_2_PARAMS+=("$NAME-$RESIZE.mp4")
+else
+    PASS_2_PARAMS+=("$NAME-cuda.mp4")
+fi
 
 FN_1_ARGS="${FFMPEG_PARAM[@]} ${PASS_1_PARAMS[@]}"
 FN_2_ARGS="${FFMPEG_PARAM[@]} ${PASS_2_PARAMS[@]}"
@@ -71,7 +78,7 @@ if [[ $DEBUG -ne 0 ]]; then
     echo "[[ FN_2_ARGS ]] ${FN_2_ARGS}"
 fi
 
-ffmpeg "${FN_1_ARGS}" && ffmpeg "${FN_2_ARGS}"
+ffmpeg $FN_1_ARGS && ffmpeg $FN_2_ARGS
 
 # Check if input file exists
 if [[ -f "ffmpeg2pass-0.log" ]]; then
