@@ -50,14 +50,21 @@ PASS_2_PARAMS+=('-c:a' "$AUDIO_CODEC")
 PASS_2_PARAMS+=('-b:a' "$AUDIO_BITRATE")
 PASS_2_PARAMS+=("$NAME-cuda.mp4")
 
+FN_1_ARGS="${FFMPEG_PARAM[@]} ${PASS_1_PARAMS[@]}"
+FN_2_ARGS="${FFMPEG_PARAM[@]} ${PASS_2_PARAMS[@]}"
+
 if [[ $DEBUG -ne 0 ]]; then
     echo "[[ NAME ]] - ${NAME}"
-    echo "[[ FFMPEG_PARAM ]] ${FFMPEG_PARAM[@]}"
-    echo "[[ PASS_1_PARAMS ]] ${PASS_1_PARAMS[@]}"
-    echo "[[ PASS_2_PARAMS ]] ${PASS_2_PARAMS[@]}"
+    echo
+    echo "[[ FN_1_ARGS ]] ${FN_1_ARGS}"
+    echo
+    echo "[[ FN_2_ARGS ]] ${FN_2_ARGS}"
 fi
 
-ffmpeg "${FFMPEG_PARAM[@]} ${PASS_1_PARAMS[@]}" && \
-ffmpeg "${FFMPEG_PARAM[@]} ${PASS_2_PARAMS[@]}"
+ffmpeg "${FN_1_ARGS}" && ffmpeg "${FN_2_ARGS}"
 
-rm ffmpeg2pass-0.log
+# Check if input file exists
+if [[ -f "ffmpeg2pass-0.log" ]]; then
+    echo "Cleaning up"
+    rm ffmpeg2pass-0.log
+fi
