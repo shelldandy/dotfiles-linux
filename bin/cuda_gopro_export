@@ -23,10 +23,15 @@ fi
 DEBUG=1
 FILENAME=$1
 RESIZE=$2
+CUSTOM_BITRATE=$3
 VERBOSE=info
 HWACCEL=cuda
+if [[ $CUSTOM_BITRATE ]]; then
+    VIDEO_BITRATE=$CUSTOM_BITRATE
+else
+    VIDEO_BITRATE=60M # Same bitrate GoPro 7 4k footages comes at
+fi
 VIDEO_CODEC=hevc_nvenc
-VIDEO_BITRATE=60M # Same bitrate GoPro 7 4k footages comes at
 AUDIO_CODEC=aac
 AUDIO_BITRATE=128k
 
