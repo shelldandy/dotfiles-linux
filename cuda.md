@@ -15,5 +15,6 @@ ffmpeg -i input.MP4 -vcodec h264 -q:v 2 -b:v 60M -x264-params opencl=true -acode
 Optimal settings with Cuda power
 
 ```sh
-ffmpeg -hwaccel cuda -hwaccel_output_format cuda -y -i INPUT -c:v hevc_nvenc -b:v 60M -pass 1 -an -f null /dev/null && \                                                                 23: ffmpeg -hwaccel cuda -hwaccel_output_format cuda -i INPUT -c:v hevc_nvenc -b:v 60M -pass 2 -c:a aac -b:a 128k OUTPUT.mp4
+ffmpeg -hwaccel cuda -hwaccel_output_format cuda -y -i INPUT -c:v hevc_nvenc -b:v 60M -movflags +faststart -pass 1 -an -f null /dev/null && \
+ffmpeg -hwaccel cuda -hwaccel_output_format cuda -i INPUT -c:v hevc_nvenc -b:v 60M -movflags +faststart -pass 2 -c:a aac -b:a 128k OUTPUT.mp4
 ```
