@@ -26,12 +26,12 @@ RESIZE=$2
 CUSTOM_BITRATE=$3
 VERBOSE=info
 HWACCEL=cuda
+VIDEO_CODEC=hevc_nvenc
 if [[ $CUSTOM_BITRATE ]]; then
     VIDEO_BITRATE=$CUSTOM_BITRATE
 else
     VIDEO_BITRATE=60M # Same bitrate GoPro 7 4k footages comes at
 fi
-VIDEO_CODEC=hevc_nvenc
 AUDIO_CODEC=aac
 AUDIO_BITRATE=128k
 
