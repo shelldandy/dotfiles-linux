@@ -22,6 +22,7 @@ fi
 
 DEBUG=1
 FILENAME=$1
+RESIZE=$2
 VERBOSE=info
 HWACCEL=cuda
 VIDEO_CODEC=hevc_nvenc
@@ -32,6 +33,15 @@ AUDIO_BITRATE=128k
 FFMPEG_PARAM=('-hwaccel' "$HWACCEL")
 FFMPEG_PARAM+=('-hwaccel_output_format' "$HWACCEL")
 FFMPEG_PARAM+=('-y')
+
+if [[ $RESIZE ]]; then
+    if [[ $RESIZE == "1080" ]]; then
+        FFMPEG_PARAM+=('-resize' "1920x1080")
+    else
+        FFMPEG_PARAM+=('-resize' "$RESIZE")
+    fi
+fi
+
 FFMPEG_PARAM+=('-i' "$FILENAME")
 FFMPEG_PARAM+=('-v' "$VERBOSE")
 FFMPEG_PARAM+=('-c:v' "$VIDEO_CODEC")
