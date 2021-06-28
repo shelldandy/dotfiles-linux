@@ -1,0 +1,63 @@
+#!/usr/bin/bash
+#
+# Author: BowlineDandy
+#
+# Convert DaVinci Resolve Videos Back to Original GoPro sizes
+# And have them be web friendly as well
+# Outperforms Compressor in Mac
+# Requires Nvidia GPU
+# Requires CUDA Enabled ffmpeg (Custom compiled from Source)
+#
+# See: https://developer.nvidia.com/blog/nvidia-ffmpeg-transcoding-guide/
+#
+# cuda_gopro_export example.mov
+
+VERSION=1.0
+
+# Check if input file exists
+if [[ ! -f "$1" ]]; then
+    echo "Input file not found!"
+    exit 1
+fi
+
+DEBUG=1
+FILENAME=$1
+VERBOSE=info
+HWACCEL=cuda
+VIDEO_CODEC=hevc_nvenc
+VIDEO_BITRATE=60M # Same bitrate GoPro 7 4k footages comes at
+AUDIO_CODEC=aac
+AUDIO_BITRATE=128k
+
+FFMPEG_PARAM=('-hwaccel' "$HWACCEL")
+FFMPEG_PARAM+=('-hwaccel_output_format' "$HWACCEL")
+FFMPEG_PARAM+=('-y')
+FFMPEG_PARAM+=('-i' "$FILENAME")
+FFMPEG_PARAM+=('-v' "$VERBOSE")
+FFMPEG_PARAM+=('-c:v' "$VIDEO_CODEC")
+FFMPEG_PARAM+=('-b:v' "$VIDEO_BITRATE")
+# Optimize for web
+FFMPEG_PARAM+=('movflags' "+faststart")
+
+NAME=$(basename $FILENAME | sed 's/\(.*\)\..*/\1/')
+
+PASS_1_PARAMS=('-pass' '1')
+PASS_1_PARAMS+=('f' 'null')
+PASS_1_PARAMS+=('/dev/null')
+
+PASS_2_PARAMS=('-pass' '2')
+PASS_2_PARAMS+=('-c:a' "$AUDIO_CODEC")
+PASS_2_PARAMS+=('-b:a' "$AUDIO_BITRATE")
+PASS_2_PARAMS+=("$NAME-cuda.mp4")
+
+if [[ $DEBUG -ne 0 ]]; then
+    echo "[[ NAME ]] - ${NAME}"
+    echo "[[ FFMPEG_PARAM ]] ${FFMPEG_PARAM[@]}"
+    echo "[[ PASS_1_PARAMS ]] ${PASS_1_PARAMS[@]}"
+    echo "[[ PASS_2_PARAMS ]] ${PASS_2_PARAMS[@]}"
+fi
+
+ffmpeg "${FFMPEG_PARAM[@]} ${PASS_1_PARAMS[@]}" && \
+ffmpeg "${FFMPEG_PARAM[@]} ${PASS_2_PARAMS[@]}"
+
+rm ffmpeg2pass-0.log

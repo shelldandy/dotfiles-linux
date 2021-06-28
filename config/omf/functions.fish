@@ -118,3 +118,7 @@ end
 function cani
   set -l feat (ciu | sort -rn | eval "fzf --ansi --header='[caniuse:features]'" | sed -e 's/^.*%\ *//g' | sed -e 's/   .*//g')
 end
+
+function removeExtension --argument-names "filename"
+  echo (basename "$filename" | sed 's/\(.*\)\..*/\1/')
+end
