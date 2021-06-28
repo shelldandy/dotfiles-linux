@@ -11,3 +11,9 @@ Nice conversion with CPU Only on normal apt ffmpeg
 ```sh
 ffmpeg -i input.MP4 -vcodec h264 -q:v 2 -b:v 60M -x264-params opencl=true -acodec aac -q:a 0 -f mov output.mov
 ```
+
+Optimal settings with Cuda power
+
+```sh
+ffmpeg -hwaccel cuda -hwaccel_output_format cuda -y -i INPUT -c:v hevc_nvenc -b:v 60M -pass 1 -an -f null /dev/null && \                                                                 23: ffmpeg -hwaccel cuda -hwaccel_output_format cuda -i INPUT -c:v hevc_nvenc -b:v 60M -pass 2 -c:a aac -b:a 128k OUTPUT.mp4
+```

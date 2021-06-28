@@ -116,5 +116,5 @@ function my_ip
 end
 
 function cani
-  set -l feat (ciu | sort -rn | eval "fzf $FZF_DEFAULT_OPTS --ansi --header='[caniuse:features]'" | sed -e 's/^.*%\ *//g' | sed -e 's/   .*//g')
+  set -l feat (ciu | sort -rn | eval "fzf --ansi --header='[caniuse:features]'" | sed -e 's/^.*%\ *//g' | sed -e 's/   .*//g')
 end
