@@ -93,7 +93,7 @@ end
 
 function ydp
   set currentPath (pwd)
-  set url (pbpaste)
+  set url (xclip -o)
   cd ~/Downloads
   youtube-dl $url
   cd $currentPath
@@ -101,7 +101,7 @@ end
 
 function yda
   set currentPath (pwd)
-  set url (pbpaste)
+  set url (xclip -o)
   cd ~/Downloads
   youtube-dl $url -x --audio-format mp3 --audio-quality 0
   cd $currentPath
@@ -131,4 +131,21 @@ function cuda_fish_export --argument-names "filename"
     # Cleanup
     rm ffmpeg2pass-0.log
   end
+end
+
+# Leeme
+function leeme
+  say -v Paulina $argv
+end
+
+function leepaste
+  pbpaste | leeme
+end
+
+function read2me
+  say -v Samantha $argv
+end
+
+function readpaste
+  pbpaste | read2me
 end
