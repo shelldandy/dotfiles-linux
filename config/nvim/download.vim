@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Themes
 Plug 'morhetz/gruvbox'                                              " Gruvbox
 Plug 'reedes/vim-colors-pencil'                                     " iA Writer mode
+Plug 'projekt0n/github-nvim-theme'
 
 " Syntax Highlights
 let g:polyglot_disabled = ['markdown']
@@ -56,6 +57,7 @@ Plug 'w0rp/ale'
 
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sansyrox/vim-python-virtualenv'
 
 " Others
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
