@@ -1,11 +1,9 @@
 # Disable initial Fish Greeting
 set fish_greeting
 
-# Disable fish underline prompt
-# To re-enable do set fish_color_valid_path --underline
-set fish_color_valid_path
-
+# Source useful tools
 source ~/.config/omf/functions.fish
+source ~/.config/omf/prompt.fish
 
 # Abbreviations
 abbr gc git commit
