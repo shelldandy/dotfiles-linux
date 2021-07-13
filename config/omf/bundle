@@ -7,6 +7,4 @@ package rvm
 package wttr
 package z
 theme bobthefish
-theme cbjohnson
 theme default
-theme ocean
