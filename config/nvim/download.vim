@@ -74,6 +74,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'                                            " Focus mode like iA Writer
 Plug 'junegunn/limelight.vim'                                       " Limelight
+Plug 'amix/vim-zenroom2'
 Plug 'vimlab/split-term.vim'                                        " Fun with inner terminals
 Plug 'iamcco/markdown-preview.nvim', {
   \   'do': 'cd app & yarn install'
@@ -85,5 +86,6 @@ Plug 'reedes/vim-lexical'
 Plug 'arecarn/vim-spell-utils'
 
 " Icons for NerdTree, make start slow...
+let g:WebDevIconsOS = 'unix'
 Plug 'ryanoasis/vim-devicons'                                       " Vim Icons Load LAST
 call plug#end()
