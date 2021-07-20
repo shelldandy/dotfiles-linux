@@ -61,13 +61,20 @@ function nvm-update
 end
 
 function update
+  lolcow 'Updating apt'
+  sudo apt update
+  sudo apt upgrade
+  lolcow 'Flatpak'
+  flatpak update
+  lolcow 'Snaps'
+  snap refresh
   lolcow 'Updating Neovim...'
   nvim -c 'PlugUpdate' -c 'qa'
   lolcow 'Updating gems'
   gem update
   lolcow 'Updating pips'
-  pip list -o | cut -d " " -f 1 | tail -n +3 | xargs pip install -U
-  pip3 list -o | cut -d " " -f 1 | tail -n +3 | xargs pip3 install -U
+  pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
+  pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
   lolcow 'Back to business lets get it! #HUSTLE'
 end
 
