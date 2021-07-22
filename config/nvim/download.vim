@@ -49,6 +49,8 @@ Plug 'junegunn/fzf', {
  \    }
 Plug 'junegunn/fzf.vim'
 Plug 'wesQ3/vim-windowswap'                                         " Quickly swap panes <Leader>ww
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'                                           " IDE-like buffer tabs and navigation
 
 " Linters
 Plug 'w0rp/ale'
@@ -79,8 +81,6 @@ Plug 'iamcco/markdown-preview.nvim', {
   \   }
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-sleuth'                                             " Detect indent style
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
 " Spellcheck powers
 Plug 'reedes/vim-lexical'
 Plug 'arecarn/vim-spell-utils'
