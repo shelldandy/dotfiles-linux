@@ -45,10 +45,6 @@ if HasPlug('indentLine')
   let g:indentLine_bufNameExclude = ['NERD_tree.*']
 endif
 
-if HasPlug('fzf.vim')
-  let g:fzf_history_dir = '~/.local/share/fzf-history'
-endif
-
 if HasPlug('goyo.vim')
   let g:goyo_height = '100%'
   function! s:goyo_enter()

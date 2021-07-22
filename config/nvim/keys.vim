@@ -42,14 +42,13 @@ nnoremap <Leader>wr <C-W><C-R>
 nnoremap <Leader>W :set wrap!<CR>
 
 " FZF
-if HasPlug('fzf.vim')
-  nnoremap <Leader>p              :Files<CR>
-  nnoremap <Leader>f              :Rg<space>
-  nnoremap <Leader>h              :History<CR>
-  nnoremap <Leader>bb             :Buffers<CR>
-  nnoremap <silent> <Leader>rg    :Rg <C-R><C-W><CR>
-  nnoremap <silent> <Leader>RG    :Rg <C-R><C-A><CR>
-  nnoremap <silent> <Leader>`     :Marks<CR>
+if HasPlug('telescope.nvim')
+  nnoremap <Leader>p              <cmd>Telescope find_files<cr>
+  nnoremap <Leader>f              <cmd>Telescope live_grep<cr>
+  nnoremap <Leader>bb             <cmd>Telescope buffers<cr>
+  nnoremap <silent> <Leader>rg    <cmd>Telescope live_grep <C-R><C-W><CR>
+  nnoremap <silent> <Leader>RG    <cmd>Telescope live_grep <C-R><C-A><CR>
+  nnoremap <silent> <Leader>`     <cmd>Telescope marks<cr>
 endif
 
 " Disabling the directional keys
@@ -88,10 +87,7 @@ if HasPlug('vim-fugitive')
   nnoremap <Leader>gw :Gwrite<CR>
 endif
 
-" Dash docs
-nmap <Leader>fd :Dash<CR>
-
-" adjust window size with arrow keys
+" " adjust window size with arrow keys
 noremap <right> <C-w>5>
 noremap <left> <C-w>5<
 noremap <up> <C-w>5+
@@ -129,12 +125,6 @@ if HasPlug('emmet-vim')
   nnoremap <Leader>em :call emmet#expandAbbr(0, "")<CR>
   :imap ,e <C-M>,
 endif
-
-if HasPlug('ranger.vim')
-  let g:ranger_map_keys = 0
-  map <leader>P :Ranger<CR>
-endif
-
 nnoremap <Leader><Tab> :call TabToggle()<CR>
 nnoremap <Leader>wm :call WriteMode()<CR>
 nnoremap <Leader>tb :call BackgroundToggle()<CR>

@@ -44,14 +44,14 @@ Plug 'tpope/vim-fugitive'                                           " Vim Fugiti
 Plug 'gregsexton/gitv', {'on': ['Gitv']}                            " Vim Fugitive Git Log Extension
 Plug 'brooth/far.vim'                                               " Search and replace
 Plug 'valloric/matchtagalways'
-Plug 'junegunn/fzf', {
- \    'dir': '~/.fzf',
- \    'do': './install --bin'
- \    }
-Plug 'junegunn/fzf.vim'
 Plug 'wesQ3/vim-windowswap'                                         " Quickly swap panes <Leader>ww
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'                                           " IDE-like buffer tabs and navigation
+
+" Vim Telescope (Fuzzy finder)
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Linters
 Plug 'w0rp/ale'
