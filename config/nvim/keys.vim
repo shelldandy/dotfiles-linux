@@ -208,3 +208,8 @@ if HasPlug('nvim-tree.lua')
   nnoremap <Leader>n :NvimTreeToggle<CR>
   nnoremap <Leader>N :NvimTreeFindFile<CR>
 endif
+
+nnoremap <silent> <C-h> :call WinMove('h')<CR>
+nnoremap <silent> <C-j> :call WinMove('j')<CR>
+nnoremap <silent> <C-k> :call WinMove('k')<CR>
+nnoremap <silent> <C-l> :call WinMove('l')<CR>
