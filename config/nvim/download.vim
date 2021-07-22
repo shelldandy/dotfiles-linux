@@ -4,7 +4,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Themes
-Plug 'morhetz/gruvbox'                                              " Gruvbox
+Plug 'rktjmp/lush.nvim'
+Plug 'npxbr/gruvbox.nvim'
 Plug 'reedes/vim-colors-pencil'                                     " iA Writer mode
 Plug 'projekt0n/github-nvim-theme'
 
