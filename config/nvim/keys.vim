@@ -14,18 +14,6 @@ nnoremap <Leader>e :filetype detect<CR>
 " jsdoc
 nnoremap <Leader>d :JsDoc<CR>
 
-" Easier Split Navigation
-" Instead of doing CTRL-W + (h|j|k|l)
-" Just do CTRL-(h|j|k|l)
-nnoremap <Leader>j <C-W><C-J>
-nnoremap <Leader>k <C-W><C-K>
-nnoremap <Leader>l <C-W><C-L>
-nnoremap <Leader>h <C-W><C-H>
-" Neovim fix to get CTRL-H Back 💁
-if has('nvim')
-  nmap <bs> <c-w>h
-endif
-
 " window keys
 nnoremap <Leader>w< <C-w><
 nnoremap <Leader>w> <C-w>>
@@ -45,9 +33,9 @@ nnoremap <Leader>W :set wrap!<CR>
 if HasPlug('telescope.nvim')
   nnoremap <Leader>p              <cmd>Telescope find_files<cr>
   nnoremap <Leader>f              <cmd>Telescope live_grep<cr>
+  nnoremap <Leader>rg             <cmd>Telescope grep_string<cr>
+  nnoremap <Leader>ag             <cmd>Telescope grep_string<cr>
   nnoremap <Leader>bb             <cmd>Telescope buffers<cr>
-  nnoremap <silent> <Leader>rg    <cmd>Telescope live_grep <C-R><C-W><CR>
-  nnoremap <silent> <Leader>RG    <cmd>Telescope live_grep <C-R><C-A><CR>
   nnoremap <silent> <Leader>`     <cmd>Telescope marks<cr>
 endif
 
