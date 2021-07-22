@@ -90,3 +90,8 @@ if HasPlug('vim-pandoc-syntax')
     \ 'viml=vim',
   \]
 endif
+
+if HasPlug('nvim-tree.lua')
+  let g:nvim_tree_gitignore=1
+  let g:nvim_tree_hide_dotfiles=0
+endif
