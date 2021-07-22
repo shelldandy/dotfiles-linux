@@ -41,12 +41,6 @@ nnoremap <Leader>wr <C-W><C-R>
 " Quickly wrap or unwrap text
 nnoremap <Leader>W :set wrap!<CR>
 
-" NerdTree
-if HasPlug('nerdtree')
-  nnoremap <Leader>n :NERDTreeToggle<CR>
-  nnoremap <Leader>N :NERDTreeFind<CR>
-endif
-
 " FZF
 if HasPlug('fzf.vim')
   nnoremap <Leader>p              :Files<CR>
@@ -174,4 +168,43 @@ if HasPlug('split-term.vim')
   nnoremap <Leader>t- :Term<CR>
   nnoremap <Leader>t\| :VTerm<CR>
   nnoremap <Leader>tt :TTerm<CR>
+endif
+
+if HasPlug('barbar.nvim')
+  " Move to previous/next
+  nnoremap <silent>    <A-,> :BufferPrevious<CR>
+  nnoremap <silent>    <A-.> :BufferNext<CR>
+  " Re-order to previous/next
+  nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
+  nnoremap <silent>    <A->> :BufferMoveNext<CR>
+  " Goto buffer in position...
+  nnoremap <silent>    <A-1> :BufferGoto 1<CR>
+  nnoremap <silent>    <A-2> :BufferGoto 2<CR>
+  nnoremap <silent>    <A-3> :BufferGoto 3<CR>
+  nnoremap <silent>    <A-4> :BufferGoto 4<CR>
+  nnoremap <silent>    <A-5> :BufferGoto 5<CR>
+  nnoremap <silent>    <A-6> :BufferGoto 6<CR>
+  nnoremap <silent>    <A-7> :BufferGoto 7<CR>
+  nnoremap <silent>    <A-8> :BufferGoto 8<CR>
+  nnoremap <silent>    <A-9> :BufferLast<CR>
+  " Close buffer
+  nnoremap <silent>    <A-c> :BufferClose<CR>
+  nnoremap <silent>    <A-w> :BufferClose<CR>
+  " Wipeout buffer
+  "                          :BufferWipeout<CR>
+  " Close commands
+  "                          :BufferCloseAllButCurrent<CR>
+  "                          :BufferCloseBuffersLeft<CR>
+  "                          :BufferCloseBuffersRight<CR>
+  " Magic buffer-picking mode
+  nnoremap <silent> <C-s>    :BufferPick<CR>
+  " Sort automatically by...
+  nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
+  nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
+endif
+
+" NerdTree
+if HasPlug('nvim-tree.lua')
+  nnoremap <Leader>n :NvimTreeToggle<CR>
+  nnoremap <Leader>N :NvimTreeFindFile<CR>
 endif

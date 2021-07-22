@@ -35,9 +35,7 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'rhysd/vim-fixjson'                                            " Autofix json
 
 " General/Movement
-Plug 'scrooloose/nerdtree'                                          " NerdTree
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'jiangmiao/auto-pairs'                                         " Auto close brackets smartly
 Plug 'airblade/vim-gitgutter'                                       " Git Situation on my Lines like Atom
 Plug 'tpope/vim-fugitive'                                           " Vim Fugitive Awesome git shortcuts on vim
@@ -81,11 +79,9 @@ Plug 'iamcco/markdown-preview.nvim', {
   \   }
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-sleuth'                                             " Detect indent style
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 " Spellcheck powers
 Plug 'reedes/vim-lexical'
 Plug 'arecarn/vim-spell-utils'
-
-" Icons for NerdTree, make start slow...
-let g:WebDevIconsOS = 'unix'
-Plug 'ryanoasis/vim-devicons'                                       " Vim Icons Load LAST
 call plug#end()
