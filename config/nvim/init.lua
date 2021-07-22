@@ -11,3 +11,4 @@ vim.cmd('source ~/.config/nvim/colors.vim')
 vim.cmd('source ~/.config/nvim/javascript.vim')
 
 require("statusline")
+require("finder")

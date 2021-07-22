@@ -31,9 +31,10 @@ nnoremap <Leader>W :set wrap!<CR>
 
 " FZF
 if HasPlug('telescope.nvim')
-  nnoremap <Leader>p              <cmd>Telescope find_files<cr>
-  nnoremap <Leader>f              <cmd>Telescope live_grep<cr>
+  nnoremap <Leader>pp             <cmd>Telescope find_files<cr>
+  nnoremap <Leader>ff             <cmd>Telescope live_grep<cr>
   nnoremap <Leader>rg             <cmd>Telescope grep_string<cr>
+  nnoremap <Leader>hh             <cmd>Telescope help_tags<cr>
   nnoremap <Leader>ag             <cmd>Telescope grep_string<cr>
   nnoremap <Leader>bb             <cmd>Telescope buffers<cr>
   nnoremap <silent> <Leader>`     <cmd>Telescope marks<cr>
@@ -55,9 +56,6 @@ nnoremap <Leader>db :Breakpoint<CR>
 
 " Clear Buffer Quickly
 nnoremap <Leader>bc :BufOnly<CR>
-" Buffer Switching
-nnoremap <Leader>l :bnext<CR>
-nnoremap <Leader>h :bprevious<CR>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nnoremap <leader>bq :bp <BAR> bd #<CR>
