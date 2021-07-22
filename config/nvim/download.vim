@@ -36,6 +36,7 @@ Plug 'rhysd/vim-fixjson'                                            " Autofix js
 
 " General/Movement
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'jiangmiao/auto-pairs'                                         " Auto close brackets smartly
 Plug 'airblade/vim-gitgutter'                                       " Git Situation on my Lines like Atom
 Plug 'tpope/vim-fugitive'                                           " Vim Fugitive Awesome git shortcuts on vim
@@ -61,7 +62,6 @@ Plug 'sansyrox/vim-python-virtualenv'
 
 " Others
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
-Plug 'vim-airline/vim-airline'                                      " Vim Airline
 Plug 'scrooloose/nerdcommenter'                                     " Nerd Commenter
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-ragtag'                                             " Endings for html/xml

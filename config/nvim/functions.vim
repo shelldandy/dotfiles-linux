@@ -29,9 +29,6 @@ endfunction
 function HardReload()
   source $MYVIMRC
   mode
-  if exists("g:loaded_webdevicons")
-    call webdevicons#refresh()
-  endif
 endfunction
 
 function WriteMode()
