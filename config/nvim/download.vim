@@ -37,7 +37,8 @@ Plug 'rhysd/vim-fixjson'                                            " Autofix js
 
 " General/Movement
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+"Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'hoob3rt/lualine.nvim'
 Plug 'jiangmiao/auto-pairs'                                         " Auto close brackets smartly
 Plug 'airblade/vim-gitgutter'                                       " Git Situation on my Lines like Atom
 Plug 'tpope/vim-fugitive'                                           " Vim Fugitive Awesome git shortcuts on vim
@@ -81,6 +82,7 @@ Plug 'iamcco/markdown-preview.nvim', {
   \   }
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-sleuth'                                             " Detect indent style
+
 " Spellcheck powers
 Plug 'reedes/vim-lexical'
 Plug 'arecarn/vim-spell-utils'
