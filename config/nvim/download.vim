@@ -13,6 +13,7 @@ Plug 'projekt0n/github-nvim-theme'
 let g:polyglot_disabled = ['markdown']
 Plug 'sheerun/vim-polyglot'                                         " Syntax Highlight and Snippets for tons of languages
 Plug 'ap/vim-css-color'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'shelldandy/shopify.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'Quramy/vim-js-pretty-template'
