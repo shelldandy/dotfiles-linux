@@ -37,7 +37,6 @@ Plug 'rhysd/vim-fixjson'                                            " Autofix js
 
 " General/Movement
 Plug 'kyazdani42/nvim-tree.lua'
-"Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'hoob3rt/lualine.nvim'
 Plug 'jiangmiao/auto-pairs'                                         " Auto close brackets smartly
 Plug 'airblade/vim-gitgutter'                                       " Git Situation on my Lines like Atom
