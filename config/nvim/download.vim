@@ -58,7 +58,6 @@ Plug 'w0rp/ale'
 
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sansyrox/vim-python-virtualenv'
 
 " Others
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
