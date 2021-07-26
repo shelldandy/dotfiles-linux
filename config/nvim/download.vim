@@ -4,10 +4,14 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Themes
-Plug 'rktjmp/lush.nvim'
-Plug 'npxbr/gruvbox.nvim'
-Plug 'reedes/vim-colors-pencil'                                     " iA Writer mode
-Plug 'projekt0n/github-nvim-theme'
+if $THEME_COLORS == "gruvbox-dark" || $THEME_COLORS == "gruvbox-light"
+  Plug 'rktjmp/lush.nvim'
+  Plug 'npxbr/gruvbox.nvim'
+endif
+
+if $THEME_COLORS == "pencil" || $THEME_COLORS == "pencil-dark"
+  Plug 'reedes/vim-colors-pencil'                                     " iA Writer mode
+endif
 
 " Syntax Highlights
 let g:polyglot_disabled = ['markdown']
