@@ -44,7 +44,6 @@ Plug 'airblade/vim-gitgutter'                                       " Git Situat
 Plug 'tpope/vim-fugitive'                                           " Vim Fugitive Awesome git shortcuts on vim
 Plug 'gregsexton/gitv', {'on': ['Gitv']}                            " Vim Fugitive Git Log Extension
 Plug 'brooth/far.vim'                                               " Search and replace
-Plug 'valloric/matchtagalways'
 Plug 'wesQ3/vim-windowswap'                                         " Quickly swap panes <Leader>ww
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'                                           " IDE-like buffer tabs and navigation
