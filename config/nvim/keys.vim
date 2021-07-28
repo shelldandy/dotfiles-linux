@@ -31,7 +31,7 @@ nnoremap <Leader>W :set wrap!<CR>
 
 " FZF
 if HasPlug('telescope.nvim')
-  nnoremap <Leader>pp             <cmd>Telescope find_files<cr>
+  nnoremap <Leader>pp             <cmd>Telescope git_files<cr>
   nnoremap <Leader>ff             <cmd>Telescope live_grep<cr>
   nnoremap <Leader>rg             <cmd>Telescope grep_string<cr>
   nnoremap <Leader>hh             <cmd>Telescope help_tags<cr>
