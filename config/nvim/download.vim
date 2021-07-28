@@ -41,6 +41,7 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'rhysd/vim-fixjson'                                            " Autofix json
 
 " General/Movement
+Plug 'f-person/git-blame.nvim'                                      " Show blame next to the line we're at
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'jiangmiao/auto-pairs'                                         " Auto close brackets smartly
