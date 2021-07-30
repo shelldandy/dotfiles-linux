@@ -55,7 +55,7 @@ imap <right> <nop>
 nnoremap <Leader>db :Breakpoint<CR>
 
 " Clear Buffer Quickly
-nnoremap <Leader>bc :BufOnly<CR>
+nnoremap <Leader>bc :BufferCloseAllButCurrent<CR>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nnoremap <leader>bq :bp <BAR> bd #<CR>
