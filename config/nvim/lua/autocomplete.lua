@@ -1,7 +1,22 @@
-local nvim_lsp = require('lspconfig')
+local nvim_lsp = require'lspconfig'
+local nvim_compe = require'compe'
 
 nvim_lsp.pyright.setup{}
 nvim_lsp.tsserver.setup{}
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+nvim_lsp.html.setup {
+  capabilities = capabilities,
+}
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+nvim_lsp.cssls.setup {
+  capabilities = capabilities,
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -49,7 +64,6 @@ end
 
 
 -- nvim-compe
-local nvim_compe = require'compe'
 nvim_compe.setup {
   enabled = true;
   autocomplete = true;
@@ -94,7 +108,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-require'lspconfig'.rust_analyzer.setup {
+nvim_lsp.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
