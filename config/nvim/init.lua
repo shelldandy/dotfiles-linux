@@ -12,3 +12,4 @@ vim.cmd('source ~/.config/nvim/javascript.vim')
 
 require("statusline")
 require("finder")
+require("autocomplete")

@@ -62,7 +62,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'w0rp/ale'
 
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'hrsh7th/nvim-compe'
+Plug 'neovim/nvim-lspconfig'
 
 " Others
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
