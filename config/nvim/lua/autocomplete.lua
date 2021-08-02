@@ -1,6 +1,7 @@
 local nvim_lsp = require'lspconfig'
 local nvim_compe = require'compe'
 local lsp_install = require'lspinstall'
+local saga = require 'lspsaga'
 
 -- nvim-lspinstall
 -- https://github.com/kabouzeid/nvim-lspinstall/wiki
@@ -186,3 +187,8 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 --This line is important for auto-import
 vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
 vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
+
+-- lspsaga.nvim
+saga.init_lsp_saga()
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', 'gh', '<Cmd>lua require"lspsaga.provider".lsp_finder()<CR>', opts)

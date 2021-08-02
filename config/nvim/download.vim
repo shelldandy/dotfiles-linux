@@ -65,6 +65,7 @@ Plug 'w0rp/ale'
 Plug 'hrsh7th/nvim-compe'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
+Plug 'glepnir/lspsaga.nvim'
 
 " Others
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
