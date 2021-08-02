@@ -3,6 +3,11 @@ local nvim_compe = require'compe'
 
 nvim_lsp.pyright.setup{}
 nvim_lsp.tsserver.setup{}
+nvim_lsp.dockerls.setup{}
+nvim_lsp.vimls.setup{}
+nvim_lsp.jsonls.setup{}
+nvim_lsp.stylelint_lsp.setup{}
+nvim_lsp.bashls.setup{}
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true

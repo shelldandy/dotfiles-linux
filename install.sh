@@ -2,6 +2,7 @@
 
 # APT
 sudo apt update
+sudo apt upgrade
 sudo apt install fish zsh
 # Life quality
 sudo apt install bat
@@ -16,6 +17,16 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 nvm install node # "node" is an alias for the latest version
+
+# nvim LSP (For neovim cool automplete situations)
+
+npm install -g vscode-langservers-extracted
+npm install -g typescript typescript-language-server
+npm install -g dockerfile-language-server-nodejs
+npm install -g vim-language-server
+npm install -g pyright
+npm install -g stylelint-lsp
+npm install -g bash-language-server
 
 #RVM
 sudo apt-add-repository -y ppa:rael-gc/rvm

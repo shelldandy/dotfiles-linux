@@ -26,7 +26,7 @@ set noswapfile
 set nobackup
 set nowb
 
-set completeopt=menuone,preview,noinsert
+set completeopt=menuone,preview,noinsert,noselect
 
 " interface
 syntax enable
