@@ -1,5 +1,6 @@
 local nvim_lsp = require'lspconfig'
 local nvim_compe = require'compe'
+local lsp_install = require'lspinstall'
 
 nvim_lsp.pyright.setup{}
 nvim_lsp.tsserver.setup{}
@@ -8,6 +9,12 @@ nvim_lsp.vimls.setup{}
 nvim_lsp.jsonls.setup{}
 nvim_lsp.stylelint_lsp.setup{}
 nvim_lsp.bashls.setup{}
+
+local servers = lsp_install.installed_servers()
+for _, server in pairs(servers) do
+  nvim_lsp[server].setup{}
+end
+
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true

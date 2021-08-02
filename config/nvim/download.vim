@@ -64,6 +64,7 @@ Plug 'w0rp/ale'
 " Autocomplete
 Plug 'hrsh7th/nvim-compe'
 Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
 
 " Others
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
