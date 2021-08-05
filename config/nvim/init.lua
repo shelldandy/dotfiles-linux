@@ -12,4 +12,5 @@ vim.cmd('source ~/.config/nvim/javascript.vim')
 
 require("statusline")
 require("finder")
-require("autocomplete")
+-- TODO: Keep there whenever native LSP > coc.nvim
+--require("autocomplete")
