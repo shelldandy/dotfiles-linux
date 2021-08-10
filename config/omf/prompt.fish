@@ -5,3 +5,8 @@ set -g theme_newline_cursor yes
 set -g theme_newline_prompt "⋊> "
 set -g theme_color_scheme gruvbox
 set -g theme_nerd_fonts yes
+
+# Random pokemon sprite lol
+function fish_greeting
+  pokemon-colorscripts -r
+end
