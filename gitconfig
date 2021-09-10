@@ -7,7 +7,7 @@
   editor = nvim
   pager = diff-so-fancy | less --tabs=4 -RFX
 [init]
-  templatedir = ~/.git_template
+  defaultBranch = "master"
 [alias]
   lg = !"git lg1"
   lg1 = !"git lg1-specific --all"
