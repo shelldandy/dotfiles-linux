@@ -64,10 +64,9 @@ function update --argument-names "extras"
   lolcow 'Updating apt'
   sudo apt update
   sudo apt upgrade
+  sudo apt autoremove
   lolcow 'Flatpak'
   flatpak update
-  lolcow 'Snaps'
-  snap refresh
   lolcow 'Updating Neovim...'
   nvim -c 'PlugUpdate' -c 'qa'
   lolcow 'Back to business lets get it! #HUSTLE'
