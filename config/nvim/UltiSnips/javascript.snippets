@@ -24,9 +24,11 @@ snippet stateless "A basic stateless placeholder" b
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ${1:MyComponent} = () => (
-	${2:<div>$1</div>}
-);
+const ${1:MyComponent} = () => {
+	return (
+		${2:<div>$1</div>}
+	);
+};
 
 $1.propTypes = {};
 
