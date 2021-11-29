@@ -15,6 +15,9 @@ require("finder")
 require('nvim-tree').setup({
     filters = {
       dotfiles = false
+    },
+    git = {
+      ignore=true
     }
   })
 -- TODO: Keep there whenever native LSP > coc.nvim
