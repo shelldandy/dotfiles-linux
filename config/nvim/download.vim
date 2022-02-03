@@ -65,6 +65,7 @@ Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Others
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
 Plug 'scrooloose/nerdcommenter'                                     " Nerd Commenter
 Plug 'tpope/vim-repeat'
