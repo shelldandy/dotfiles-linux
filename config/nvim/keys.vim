@@ -150,8 +150,13 @@ if HasPlug('barbar.nvim')
   " Move to previous/next
   nnoremap <silent>    <A-,> :BufferPrevious<CR>
   nnoremap <silent>    <A-left> :BufferPrevious<CR>
+  nnoremap <silent>    <A-j> :BufferPrevious<CR>
+  nnoremap <silent>    <A-h> :BufferPrevious<CR>
+
   nnoremap <silent>    <A-.> :BufferNext<CR>
   nnoremap <silent>    <A-right> :BufferNext<CR>
+  nnoremap <silent>    <A-k> :BufferNext<CR>
+  nnoremap <silent>    <A-l> :BufferNext<CR>
   " Re-order to previous/next
   nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
   nnoremap <silent>    <A->> :BufferMoveNext<CR>

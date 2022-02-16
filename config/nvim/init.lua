@@ -14,11 +14,10 @@ require("statusline")
 require("finder")
 require('nvim-tree').setup({
     filters = {
-      dotfiles = false
-    },
-    git = {
-      enable=true,
-      ignore=true
+      dotfiles = false,
+      custom = {
+        "*.pyc"
+      }
     }
   })
 -- TODO: Keep there whenever native LSP > coc.nvim
