@@ -54,6 +54,11 @@ function mp3extract
   ffmpeg -i $argv $argv.mp3
 end
 
+function wavextract
+  set name (removeExtension $argv)
+  ffmpeg -i $argv $name.wav
+end
+
 # Update nvm
 # https://github.com/creationix/nvm#install-script
 function nvm-update
