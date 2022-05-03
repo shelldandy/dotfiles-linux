@@ -120,6 +120,14 @@ function yda
   cd $currentPath
 end
 
+function ydw
+  set currentPath (pwd)
+  set url (xclip -o)
+  cd ~/Downloads
+  youtube-dl $url -x --audio-format wav --audio-quality 0
+  cd $currentPath
+end
+
 function man
   command man $argv | batcat
 end
