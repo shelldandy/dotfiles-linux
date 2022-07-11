@@ -69,7 +69,7 @@ function update --argument-names "extras"
   lolcow 'Updating apt'
   sudo apt update
   sudo apt upgrade
-  sudo apt autoremove
+  sudo apt autoremove --purge
   lolcow 'Flatpak'
   flatpak update
   lolcow 'Updating Neovim...'
@@ -142,4 +142,8 @@ end
 
 function removeExtension --argument-names "filename"
   echo (basename "$filename" | sed 's/\(.*\)\..*/\1/')
+end
+
+function coins
+  curl "https://plaintextco.in/?term=true&per_page=10&cols=2"
 end

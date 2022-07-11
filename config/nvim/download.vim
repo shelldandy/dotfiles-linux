@@ -52,6 +52,8 @@ Plug 'brooth/far.vim'                                               " Search and
 Plug 'wesQ3/vim-windowswap'                                         " Quickly swap panes <Leader>ww
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'                                           " IDE-like buffer tabs and navigation
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
 
 " Vim Telescope (Fuzzy finder)
 Plug 'nvim-lua/popup.nvim'
