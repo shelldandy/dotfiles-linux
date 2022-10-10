@@ -32,3 +32,6 @@ set -x LESS " -R -X -F "
 thefuck --alias | source
 
 rvm default
+
+# Vim mode
+fish_vi_key_bindings
