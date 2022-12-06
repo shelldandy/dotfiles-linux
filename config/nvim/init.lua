@@ -22,3 +22,4 @@ require('nvim-tree').setup({
   })
 -- TODO: Keep there whenever native LSP > coc.nvim
 --require("autocomplete")
+require("keys")

@@ -83,6 +83,7 @@ Plug 'iamcco/markdown-preview.nvim', {
   \   }
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-sleuth'                                             " Detect indent style
+Plug 'eandrju/cellular-automaton.nvim'                              " Fun screensaver kind of plugin
 
 " Spellcheck powers
 Plug 'reedes/vim-lexical'
