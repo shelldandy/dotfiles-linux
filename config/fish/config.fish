@@ -22,16 +22,5 @@ set -gx EDITOR               nvim
 test -d $HOME/.bin ; and set PATH $HOME/.bin $PATH
 test -d $HOME/.local/bin ; and set PATH $HOME/.local/bin $PATH
 
-# Making syntax highlight work with Fish
-set hilite (which src-hilite-lesspipe.sh)
-set -x LESSOPEN "| $hilite %s"
-set -x LESS " -R -X -F "
-
-# Fuck!
-# https://github.com/nvbn/thefuck
-thefuck --alias | source
-
-rvm default
-
 # Vim mode
 fish_vi_key_bindings

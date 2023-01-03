@@ -48,6 +48,7 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;3
 
 ### Load colors
 ###############
+source ~/.themes/gruvbox-dark.sh
 autoload colors zsh/terminfo
 if [[ "$terminfo[colors]" -ge 8 ]]; then
    colors
@@ -57,7 +58,6 @@ for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
    eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
    (( count = $count + 1 ))
 done
-
 ### Set Colors to use in in the script
 #############
 # Normal Colors
@@ -331,3 +331,4 @@ export LESS=' -R -X -F '
 ### Source plugins
 ##################
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/nvm/init-nvm.sh
