@@ -11,7 +11,6 @@ function rst      ; exec fish ; end
 function v        ; nvim $argv ; end
 function g        ; git $argv ; end
 function dc       ; docker-compose $argv ; end
-function bat      ; batcat $argv ; end
 function gs       ; git status ; end
 function gaa      ; git add . ; end
 function oa       ; open -a $argv ; end
