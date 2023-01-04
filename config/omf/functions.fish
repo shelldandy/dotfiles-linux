@@ -128,7 +128,7 @@ function ydw
 end
 
 function man
-  command man $argv | batcat
+  command man $argv | bat
 end
 
 function my_ip
