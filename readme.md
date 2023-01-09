@@ -25,3 +25,19 @@ Apply Changes:
 ```sh
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas
 ```
+
+### Installing Davinci Resolve Studio on Arch
+
+First install with `yay`
+
+```sh
+yay -S davinci-resolve-studio
+```
+
+Then for the first time you'll need to launch the app as super user
+
+```sh
+sudo /opt/resolve/bin/resolve
+```
+
+That way you'll be able to input the activation code and the app will work normally from that point forward without sudo
