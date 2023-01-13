@@ -40,6 +40,7 @@ zle -N history-beginning-search-forward-end history-search-end
 ### Set variables
 #################
 PATH="/usr/local/bin:/usr/local/sbin/:$PATH"
+PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH" # Adds ruby gems
 HISTFILE=$HOME/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000

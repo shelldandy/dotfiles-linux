@@ -24,7 +24,7 @@ function icat     ; kitty +kitten icat $argv ; end
 # Fun
 
 function moo # Random cowsay
-  set cows_dir /usr/share/cowsay/cows
+  set cows_dir /usr/share/cows
   set avatar (ls $cows_dir | shuf -n1|cut -d'.' -f1)
   fortune | cowsay -f $avatar | lolcat -t
 end
@@ -77,7 +77,7 @@ function update
 end
 
 function lolcow
-  set cows_dir /usr/share/cowsay/cows
+  set cows_dir /usr/share/cows
   set avatar (ls $cows_dir | shuf -n1|cut -d'.' -f1)
   echo $argv | cowsay -f $avatar | lolcat
 end
