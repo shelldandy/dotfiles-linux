@@ -64,25 +64,16 @@ function nvm-update
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
 end
 
-function update --argument-names "extras"
-  lolcow 'Updating apt'
-  sudo apt update
-  sudo apt upgrade
-  sudo apt autoremove --purge
-  lolcow 'Flatpak'
-  flatpak update
+function update
+  lolcow 'Updating AURs'
+  yay -Syu
+  lolcow 'Updating pacman'
+  sudo pacman -Syu
   lolcow 'Updating Neovim...'
-  nvim -c 'PlugUpdate' -c 'qa'
-  lolcow 'Back to business lets get it! #HUSTLE'
-end
-
-function update_extras
-  lolcow 'Updating gems'
-  gem update
-  lolcow 'Updating pips'
-  pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
-  pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
-  lolcow 'Back to business lets get it! #HUSTLE'
+  nvim -c 'PlugUpdate' -c 'UpdateRemotePlugins' -c 'qa'
+  lolcow 'Cleanup'
+  sudo pacman -Qtdq | sudo pacman -Rns -
+  lolcow 'All done!'
 end
 
 function lolcow
