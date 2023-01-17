@@ -1,3 +1,60 @@
 #!/usr/bin/bash
 
-xrandr --output HDMI-0 --off --output DP-2 --off
+display_help=false
+# Turn monitors off
+GameOn() {
+  xrandr --output HDMI-0 --off --output DP-2 --off
+  echo "Game on!"
+}
+
+GameOff() {
+  xrandr --output DP-2 --mode 3840x2160 --left-of DP-0 --output HDMI-0 --mode 3840x2160 --right-of DP-0
+  echo "Game off!"
+}
+
+# Turn monitors back on...
+
+Help() {
+  echo "Little helper to turn monitors ON/OFF for gaming"
+  echo
+  echo "options:"
+  echo "-y --yes    Start game mode turns extra monitors off"
+  echo "-n --no     Stop game mode and turn monitors on"
+  echo "-h --help   Print this Help."
+  echo
+}
+
+while getopts "hyn-:" option; do
+   case $option in
+      h)
+        display_help=true;;
+      y)
+        GameOn
+        exit;;
+      n)
+        GameOff
+        exit;;
+      -) case "${OPTARG}" in
+            help)
+              display_help=true;;
+            yes)
+              GameOn
+              exit;;
+            no)
+              GameOff
+              exit;;
+            *) if [ "$OPTERR" = 1 ] && [ "${opt:0:1}" != ":" ]; then
+                      echo "Unknown option --${OPTARG}" >&2
+                      exit 1
+              fi ;;
+          esac ;;
+      *) # Invalid option
+         echo "Error: Invalid option"
+         exit;;
+   esac
+done
+
+if [[ $display_help == true ]]; then
+  Help
+  exit 2
+fi
