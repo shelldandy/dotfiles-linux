@@ -8,5 +8,5 @@ set -g theme_nerd_fonts yes
 
 # Random pokemon sprite lol
 function fish_greeting
-  pokemon-colorscripts -r
+  colorscript -r
 end
