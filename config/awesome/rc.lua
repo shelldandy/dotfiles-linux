@@ -492,7 +492,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -566,6 +566,15 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Applications
-awful.spawn.with_shell("game_mode --off")
-awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("picom --experimental-backends")
+autorun = true
+shell_autorun_apps = {
+  "game_mode --off",
+  "nitrogen --restore",
+  "picom --experimental-backends",
+}
+
+if autorun then
+  for app = 1, #shell_autorun_apps do
+    awful.spawn.with_shell(shell_autorun_apps[app])
+  end
+end
