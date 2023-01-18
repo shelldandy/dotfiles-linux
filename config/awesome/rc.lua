@@ -568,3 +568,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart Applications
 awful.spawn.with_shell("game_mode --off")
 awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("picom --experimental-backends")
