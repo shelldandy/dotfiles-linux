@@ -23,6 +23,7 @@ Plug 'styled-components/vim-styled-components', {
   \   }
 
 Plug 'othree/csscomplete.vim'
+Plug 'Fymyte/rasi.vim'
 
 " Javascript
 " JS Tools
