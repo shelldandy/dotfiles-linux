@@ -543,9 +543,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart Applications
 autorun = true
 shell_autorun_apps = {
-  "game_mode --off",
-  "nitrogen --restore",
-  "picom --experimental-backends",
+  "~/.bin/autorun.sh",
 }
 
 if autorun then
