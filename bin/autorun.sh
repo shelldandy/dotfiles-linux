@@ -16,3 +16,5 @@ xrandr --output DP-2 --mode 3840x2160 --left-of DP-0 --output HDMI-0 --mode 3840
 nitrogen --restore
 # Compositor (window animations)
 picom --experimental-backends
+# Compose key for ñ or accents á
+setxkbmap -option compose:ralt
