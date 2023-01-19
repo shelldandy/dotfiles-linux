@@ -288,7 +288,8 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.spawn.with_shell("rofi -show drun") end, {description = "launch and app", group = "launcher"}),
+    awful.key({ modkey },            "r",     function () awful.spawn.with_shell("rofi -show drun") end, {description = "app launcher", group = "launcher"}),
+    awful.key({ modkey },            "e",     function () awful.spawn.with_shell("rofi -show emoji") end, {description = "emoji picker", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
