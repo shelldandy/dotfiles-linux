@@ -18,6 +18,11 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Gruvbox colors
+local gb_green = "#b8bb26"
+local gb_blue = "#83a598"
+local gb_gray = "#928374"
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -424,8 +429,8 @@ local tasklist_buttons = gears.table.join(
     awful.rules.rules = {
       -- All clients will match this rule.
       { rule = { },
-        properties = { border_width = beautiful.border_width,
-          border_color = beautiful.border_normal,
+        properties = { border_width = 4,
+          border_color = gb_blue,
           focus = awful.client.focus.filter,
           raise = true,
           keys = clientkeys,
@@ -546,8 +551,8 @@ local tasklist_buttons = gears.table.join(
       c:emit_signal("request::activate", "mouse_enter", {raise = false})
     end)
 
-    client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-    client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+    client.connect_signal("focus", function(c) c.border_color = gb_green end)
+    client.connect_signal("unfocus", function(c) c.border_color = gb_gray end)
     -- }}}
 
     -- Autostart Applications
