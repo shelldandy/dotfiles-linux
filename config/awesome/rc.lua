@@ -48,6 +48,53 @@ do
 end
 -- }}}
 
+-- Volume widget
+local container_vol_widget = wibox.container
+
+local vol_widget = wibox.widget {
+	align  = 'center',
+	valign = 'center',
+	widget = wibox.widget.textbox
+}
+
+local update_vol_widget = function(vol)
+	vol_widget.text = "  " .. vol
+end
+
+local vo, vo_signal = awful.widget.watch('~/.scripts/volume-bar.sh', 60, function(self, stdout)
+  local vol = stdout
+  update_vol_widget(vol)
+end)
+
+container_vol_widget = {
+	{
+		{
+			{
+				{
+					widget = vol_widget,
+				},
+				left   = 12,
+				right  = 12,
+				top    = 0,
+				bottom = 0,
+				widget = wibox.container.margin
+			},
+			shape  = gears.shape.rounded_bar,
+			fg     = "#f38ba8",
+			bg     = widget_bg,
+			widget = wibox.container.background
+		},
+
+		left   = 5,
+		right  = 5,
+		top    = 7,
+		bottom = 7,
+		widget = wibox.container.margin
+	},
+	spacing = 5,
+	layout  = wibox.layout.fixed.horizontal,
+}
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -309,7 +356,54 @@ local tasklist_buttons = gears.table.join(
         {description = "lua execute prompt", group = "awesome"}),
       -- Menubar
       awful.key({ modkey }, "p", function() menubar.show() end,
-        {description = "show the menubar", group = "launcher"})
+        {description = "show the menubar", group = "launcher"}),
+      -- Volume up
+      awful.key({}, "XF86AudioRaiseVolume",
+        function()
+          --local volume = [[/home/sv/scripts/volume-bar.sh]]
+          awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")
+          vo_signal:emit_signal("timeout")
+          --awful.spawn.easy_async(volume, function(stdout)
+          --	naughty.notify {
+          --		--title = "Brightness",
+          --		text = "   " .. stdout,
+          --		font = "Roboto Mono Nerd Font 12",
+          --		replaces_id = 1,
+          --		--border_width = 3,
+          --		--border_color = "#89b4fa",
+          --		width = 170,
+          --		height = 25,
+          --		shape = function(cr, width, heigt)
+          --			gears.shape.rounded_rect(cr, width, heigt, 5)
+          --		end
+          --	}
+          --end)
+        end,
+        { description = "Volume up", group = "system" }),
+
+      -- Volume down
+      awful.key({}, "XF86AudioLowerVolume",
+        function()
+          --local volume = [[/home/sv/scripts/volume-bar.sh]]
+          awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")
+          vo_signal:emit_signal("timeout")
+          --awful.spawn.easy_async(volume, function(stdout)
+          --	naughty.notify {
+          --		--title = "Brightness",
+          --		text = "   " .. stdout,
+          --		font = "Roboto Mono Nerd Font 12",
+          --		replaces_id = 1,
+          --		--border_width = 3,
+          --		--border_color = "#89b4fa",
+          --		width = 170,
+          --		height = 25,
+          --		shape = function(cr, width, heigt)
+          --			gears.shape.rounded_rect(cr, width, heigt, 5)
+          --		end
+          --	}
+          --end)
+        end,
+        { description = "Volume down", group = "system" })
       )
 
     clientkeys = gears.table.join(
