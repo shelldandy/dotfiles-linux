@@ -52,13 +52,13 @@ end
 local container_vol_widget = wibox.container
 
 local vol_widget = wibox.widget {
-	align  = 'center',
-	valign = 'center',
-	widget = wibox.widget.textbox
+  align  = 'center',
+  valign = 'center',
+  widget = wibox.widget.textbox
 }
 
 local update_vol_widget = function(vol)
-	vol_widget.text = "  " .. vol
+  vol_widget.text = "  " .. vol
 end
 
 local vo, vo_signal = awful.widget.watch('~/.scripts/volume-bar.sh', 60, function(self, stdout)
@@ -67,32 +67,32 @@ local vo, vo_signal = awful.widget.watch('~/.scripts/volume-bar.sh', 60, functio
 end)
 
 container_vol_widget = {
-	{
-		{
-			{
-				{
-					widget = vol_widget,
-				},
-				left   = 12,
-				right  = 12,
-				top    = 0,
-				bottom = 0,
-				widget = wibox.container.margin
-			},
-			shape  = gears.shape.rounded_bar,
-			fg     = "#f38ba8",
-			bg     = widget_bg,
-			widget = wibox.container.background
-		},
+  {
+    {
+      {
+        {
+          widget = vol_widget,
+        },
+        left   = 12,
+        right  = 12,
+        top    = 0,
+        bottom = 0,
+        widget = wibox.container.margin
+      },
+      shape  = gears.shape.rounded_bar,
+      fg     = "#f38ba8",
+      bg     = widget_bg,
+      widget = wibox.container.background
+    },
 
-		left   = 5,
-		right  = 5,
-		top    = 7,
-		bottom = 7,
-		widget = wibox.container.margin
-	},
-	spacing = 5,
-	layout  = wibox.layout.fixed.horizontal,
+    left   = 5,
+    right  = 5,
+    top    = 7,
+    bottom = 7,
+    widget = wibox.container.margin
+  },
+  spacing = 5,
+  layout  = wibox.layout.fixed.horizontal,
 }
 
 -- {{{ Variable definitions
