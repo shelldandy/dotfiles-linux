@@ -11,11 +11,12 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg: #11121D;
-  bg-alt: #444b6a;
+  bg: #282828;
+  bg-alt: #83a598;
 
-  fg: #FFFFFF;
-  fg-alt: #787c99;
+  fg: #ebdbb2;
+  fg-alt: #928374;
+  gb-green: #b8bb26;
 
   background-color: @bg;
 
@@ -27,6 +28,8 @@ configuration {
 
 window {
   width: 30%;
+  border: 4;
+  border-color: @bg-alt;
 }
 
 element {
