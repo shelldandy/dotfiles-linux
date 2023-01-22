@@ -305,10 +305,10 @@ local tasklist_buttons = gears.table.join(
       awful.key({ modkey,           }, "w", function () mymainmenu:show() end, {description = "show main menu", group = "awesome"}),
 
       -- Layout manipulation
-      awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end, {description = "swap with next client by index", group = "client"}),
-      awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end, {description = "swap with previous client by index", group = "client"}),
-      awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end, {description = "focus the next screen", group = "screen"}),
-      awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end, {description = "focus the previous screen", group = "screen"}),
+      awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(-1)    end, {description = "swap with previous client by index", group = "client"}),
+      awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx(1)    end, {description = "swap with next client by index", group = "client"}),
+      awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end, {description = "focus the previous screen", group = "screen"}),
+      awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(1) end, {description = "focus the next screen", group = "screen"}),
       awful.key({ modkey,           }, "u", awful.client.urgent.jumpto, {description = "jump to urgent client", group = "client"}),
       awful.key({ modkey,           }, "Tab", focus_history_previous, {description = "go back", group = "client"}),
 
@@ -357,53 +357,20 @@ local tasklist_buttons = gears.table.join(
       -- Menubar
       awful.key({ modkey }, "p", function() menubar.show() end,
         {description = "show the menubar", group = "launcher"}),
-      -- Volume up
-      awful.key({}, "XF86AudioRaiseVolume",
-        function()
-          --local volume = [[/home/sv/scripts/volume-bar.sh]]
-          awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")
-          vo_signal:emit_signal("timeout")
-          --awful.spawn.easy_async(volume, function(stdout)
-          --	naughty.notify {
-          --		--title = "Brightness",
-          --		text = "   " .. stdout,
-          --		font = "Roboto Mono Nerd Font 12",
-          --		replaces_id = 1,
-          --		--border_width = 3,
-          --		--border_color = "#89b4fa",
-          --		width = 170,
-          --		height = 25,
-          --		shape = function(cr, width, heigt)
-          --			gears.shape.rounded_rect(cr, width, heigt, 5)
-          --		end
-          --	}
-          --end)
-        end,
-        { description = "Volume up", group = "system" }),
-
-      -- Volume down
-      awful.key({}, "XF86AudioLowerVolume",
-        function()
-          --local volume = [[/home/sv/scripts/volume-bar.sh]]
-          awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")
-          vo_signal:emit_signal("timeout")
-          --awful.spawn.easy_async(volume, function(stdout)
-          --	naughty.notify {
-          --		--title = "Brightness",
-          --		text = "   " .. stdout,
-          --		font = "Roboto Mono Nerd Font 12",
-          --		replaces_id = 1,
-          --		--border_width = 3,
-          --		--border_color = "#89b4fa",
-          --		width = 170,
-          --		height = 25,
-          --		shape = function(cr, width, heigt)
-          --			gears.shape.rounded_rect(cr, width, heigt, 5)
-          --		end
-          --	}
-          --end)
-        end,
-        { description = "Volume down", group = "system" })
+      -- Volume Keys
+      awful.key({}, "XF86AudioLowerVolume", function ()
+      awful.util.spawn("amixer -q -D pulse sset Master 5%-", false) end),
+      awful.key({}, "XF86AudioRaiseVolume", function ()
+      awful.util.spawn("amixer -q -D pulse sset Master 5%+", false) end),
+      awful.key({}, "XF86AudioMute", function ()
+      awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end),
+      -- Media Keys
+      awful.key({}, "XF86AudioPlay", function()
+      awful.util.spawn("playerctl play-pause", false) end),
+      awful.key({}, "XF86AudioNext", function()
+      awful.util.spawn("playerctl next", false) end),
+      awful.key({}, "XF86AudioPrev", function()
+      awful.util.spawn("playerctl previous", false) end)
       )
 
     clientkeys = gears.table.join(
@@ -413,10 +380,8 @@ local tasklist_buttons = gears.table.join(
           c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-      awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
-        {description = "close", group = "client"}),
-      awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
-        {description = "toggle floating", group = "client"}),
+      awful.key({ modkey,   }, "q",      function (c) c:kill() end, {description = "close", group = "client"}),
+      awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle, {description = "toggle floating", group = "client"}),
       awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
         {description = "move to master", group = "client"}),
       awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
