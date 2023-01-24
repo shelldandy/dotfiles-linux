@@ -298,7 +298,7 @@ local tasklist_buttons = gears.table.join(
       awful.key({ modkey,           }, "s",      hotkeys_popup.show_help, {description="show help", group="awesome"}),
       awful.key({ modkey,           }, "Left",   awful.tag.viewprev, {description = "view previous", group = "tag"}),
       awful.key({ modkey,           }, "Right",  awful.tag.viewnext, {description = "view next", group = "tag"}),
-      awful.key({ modkey,           }, "Escape", awful.tag.history.restore, {description = "go back", group = "tag"}),
+      awful.key({ modkey,           }, "Escape", function() awful.spawn.with_shell("xscreensaver-command -lock") end, {description = "Lock screen", group = "client"}),
 
       awful.key({ modkey,           }, "j", function () client_focus(1) end, {description = "focus next by index", group = "client"}),
       awful.key({ modkey,           }, "k", function () client_focus(-1) end, {description = "focus previous by index", group = "client"}),
