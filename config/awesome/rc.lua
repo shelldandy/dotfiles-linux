@@ -315,12 +315,12 @@ local tasklist_buttons = gears.table.join(
       -- Standard program
       awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end, {description = "open a terminal", group = "launcher"}),
       awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end, {description = "open firefox", group = "applications"}),
+      awful.key({ modkey,           }, "\\", function () awful.spawn("spectacle") end, {description = "take a screenshot and copy it", group = "applications"}),
       awful.key({ modkey, "Control" }, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
       awful.key({ modkey, "Shift"   }, "q", awesome.quit, {description = "quit awesome", group = "awesome"}),
-      awful.key({ modkey, "Shift"   }, "4", awesome.quit, {description = "take a screenshot and copy it", group = "applications"}),
 
-      awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end, {description = "increase master width factor", group = "layout"}),
-      awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end, {description = "decrease master width factor", group = "layout"}),
+      awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact(-0.05)          end, {description = "decrease master width factor", group = "layout"}),
+      awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(0.05)           end, {description = "increase master width factor", group = "layout"}),
       awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end, {description = "increase the number of master clients", group = "layout"}),
       awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end, {description = "decrease the number of master clients", group = "layout"}),
       awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end, {description = "increase the number of columns", group = "layout"}),
