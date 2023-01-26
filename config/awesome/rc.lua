@@ -23,19 +23,26 @@ local gb_green = "#b8bb26"
 local gb_blue = "#83a598"
 local gb_gray = "#928374"
 
+-- Sandbox globals for linter purposes
+local capi = {
+  awesome = awesome,
+  client = client,
+  root = root,
+}
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
+if capi.awesome.startup_errors then
   naughty.notify({ preset = naughty.config.presets.critical,
       title = "Oops, there were errors during startup!",
-    text = awesome.startup_errors })
+    text = capi.awesome.startup_errors })
 end
 
 -- Handle runtime errors after startup
 do
   local in_error = false
-  awesome.connect_signal("debug::error", function (err)
+  capi.awesome.connect_signal("debug::error", function (err)
     -- Make sure we don't go into an endless error loop
     if in_error then return end
     in_error = true
@@ -93,9 +100,9 @@ awful.layout.layouts = {
 local myawesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   { "manual", terminal .. " -e man awesome" },
-  { "edit config", editor_cmd .. " " .. awesome.conffile },
-  { "restart", awesome.restart },
-  { "quit", function() awesome.quit() end },
+  { "edit config", editor_cmd .. " " .. capi.awesome.conffile },
+  { "restart", capi.awesome.restart },
+  { "quit", function() capi.awesome.quit() end },
 }
 
 local mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
@@ -121,14 +128,14 @@ local mytextclock = wibox.widget.textclock()
 local taglist_buttons = gears.table.join(
   awful.button({ }, 1, function(t) t:view_only() end),
   awful.button({ modkey }, 1, function(t)
-    if client.focus then
-      client.focus:move_to_tag(t)
+    if capi.client.focus then
+      capi.client.focus:move_to_tag(t)
     end
   end),
   awful.button({ }, 3, awful.tag.viewtoggle),
   awful.button({ modkey }, 3, function(t)
-    if client.focus then
-      client.focus:toggle_tag(t)
+    if capi.client.focus then
+      capi.client.focus:toggle_tag(t)
     end
   end),
   awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
@@ -137,7 +144,7 @@ local taglist_buttons = gears.table.join(
 
 local tasklist_buttons = gears.table.join(
   awful.button({ }, 1, function (c)
-    if c == client.focus then
+    if c == capi.client.focus then
       c.minimized = true
     else
       c:emit_signal(
@@ -159,8 +166,8 @@ local tasklist_buttons = gears.table.join(
 
   local function focus_history_previous()
     awful.client.focus.history.previous()
-    if client.focus then
-      client.focus:raise()
+    if capi.client.focus then
+      capi.client.focus:raise()
     end
   end
 
@@ -221,7 +228,7 @@ local tasklist_buttons = gears.table.join(
     -- }}}
 
     -- {{{ Mouse bindings
-    root.buttons(gears.table.join(
+    capi.root.buttons(gears.table.join(
         awful.button({ }, 3, function () mymainmenu:toggle() end),
         awful.button({ }, 4, awful.tag.viewnext),
         awful.button({ }, 5, awful.tag.viewprev)
@@ -229,7 +236,7 @@ local tasklist_buttons = gears.table.join(
     -- }}}
 
     -- {{{ Key bindings
-    globalkeys = gears.table.join(
+    local globalkeys = gears.table.join(
       awful.key({ modkey,           }, "s",      hotkeys_popup.show_help, {description="show help", group="awesome"}),
       awful.key({ modkey,           }, "Left",   awful.tag.viewprev, {description = "view previous", group = "tag"}),
       awful.key({ modkey,           }, "Right",  awful.tag.viewnext, {description = "view next", group = "tag"}),
@@ -251,8 +258,8 @@ local tasklist_buttons = gears.table.join(
       awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end, {description = "open a terminal", group = "launcher"}),
       awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end, {description = "open firefox", group = "applications"}),
       awful.key({ modkey,           }, "\\", function () awful.spawn("spectacle") end, {description = "take a screenshot and copy it", group = "applications"}),
-      awful.key({ modkey, "Control" }, "r", awesome.restart, {description = "reload awesome", group = "awesome"}),
-      awful.key({ modkey, "Shift"   }, "q", awesome.quit, {description = "quit awesome", group = "awesome"}),
+      awful.key({ modkey, "Control" }, "r", capi.awesome.restart, {description = "reload awesome", group = "awesome"}),
+      awful.key({ modkey, "Shift"   }, "q", capi.awesome.quit, {description = "quit awesome", group = "awesome"}),
 
       awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact(-0.05)          end, {description = "decrease master width factor", group = "layout"}),
       awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(0.05)           end, {description = "increase master width factor", group = "layout"}),
@@ -307,7 +314,7 @@ local tasklist_buttons = gears.table.join(
       awful.util.spawn("playerctl previous", false) end)
       )
 
-    clientkeys = gears.table.join(
+    local clientkeys = gears.table.join(
       awful.key({ modkey,           }, "f",
         function (c)
           c.fullscreen = not c.fullscreen
@@ -377,10 +384,10 @@ local tasklist_buttons = gears.table.join(
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
           function ()
-            if client.focus then
-              local tag = client.focus.screen.tags[i]
+            if capi.client.focus then
+              local tag = capi.client.focus.screen.tags[i]
               if tag then
-                client.focus:move_to_tag(tag)
+                capi.client.focus:move_to_tag(tag)
               end
             end
           end,
@@ -388,10 +395,10 @@ local tasklist_buttons = gears.table.join(
         -- Toggle tag on focused client.
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
           function ()
-            if client.focus then
-              local tag = client.focus.screen.tags[i]
+            if capi.client.focus then
+              local tag = capi.client.focus.screen.tags[i]
               if tag then
-                client.focus:toggle_tag(tag)
+                capi.client.focus:toggle_tag(tag)
               end
             end
           end,
@@ -399,7 +406,7 @@ local tasklist_buttons = gears.table.join(
         )
     end
 
-    clientbuttons = gears.table.join(
+    local clientbuttons = gears.table.join(
       awful.button({ }, 1, function (c)
         c:emit_signal("request::activate", "mouse_click", {raise = true})
       end),
@@ -414,7 +421,7 @@ local tasklist_buttons = gears.table.join(
       )
 
     -- Set keys
-    root.keys(globalkeys)
+    capi.root.keys(globalkeys)
     -- }}}
 
     -- {{{ Rules
@@ -486,12 +493,12 @@ local tasklist_buttons = gears.table.join(
 
     -- {{{ Signals
     -- Signal function to execute when a new client appears.
-    client.connect_signal("manage", function (c)
+    capi.client.connect_signal("manage", function (c)
       -- Set the windows at the slave,
       -- i.e. put it at the end of others instead of setting it master.
       -- if not awesome.startup then awful.client.setslave(c) end
 
-      if awesome.startup
+      if capi.awesome.startup
         and not c.size_hints.user_position
         and not c.size_hints.program_position then
         -- Prevent clients from being unreachable after screen count changes.
@@ -500,7 +507,7 @@ local tasklist_buttons = gears.table.join(
     end)
 
     -- Add a titlebar if titlebars_enabled is set to true in the rules.
-    client.connect_signal("request::titlebars", function(c)
+    capi.client.connect_signal("request::titlebars", function(c)
       -- buttons for the titlebar
       local buttons = gears.table.join(
         awful.button({ }, 1, function()
@@ -540,17 +547,17 @@ local tasklist_buttons = gears.table.join(
     end)
 
     -- Enable sloppy focus, so that focus follows mouse.
-    client.connect_signal("mouse::enter", function(c)
+    capi.client.connect_signal("mouse::enter", function(c)
       c:emit_signal("request::activate", "mouse_enter", {raise = false})
     end)
 
-    client.connect_signal("focus", function(c) c.border_color = gb_green end)
-    client.connect_signal("unfocus", function(c) c.border_color = gb_gray end)
+    capi.client.connect_signal("focus", function(c) c.border_color = gb_green end)
+    capi.client.connect_signal("unfocus", function(c) c.border_color = gb_gray end)
     -- }}}
 
     -- Autostart Applications
-    autorun = true
-    shell_autorun_apps = {
+    local autorun = true
+    local shell_autorun_apps = {
       "~/.bin/autorun.sh",
     }
 
