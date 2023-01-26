@@ -48,53 +48,6 @@ do
 end
 -- }}}
 
--- Volume widget
-local container_vol_widget = wibox.container
-
-local vol_widget = wibox.widget {
-  align  = 'center',
-  valign = 'center',
-  widget = wibox.widget.textbox
-}
-
-local update_vol_widget = function(vol)
-  vol_widget.text = "  " .. vol
-end
-
-local vo, vo_signal = awful.widget.watch('~/.scripts/volume-bar.sh', 60, function(self, stdout)
-  local vol = stdout
-  update_vol_widget(vol)
-end)
-
-container_vol_widget = {
-  {
-    {
-      {
-        {
-          widget = vol_widget,
-        },
-        left   = 12,
-        right  = 12,
-        top    = 0,
-        bottom = 0,
-        widget = wibox.container.margin
-      },
-      shape  = gears.shape.rounded_bar,
-      fg     = "#f38ba8",
-      bg     = widget_bg,
-      widget = wibox.container.background
-    },
-
-    left   = 5,
-    right  = 5,
-    top    = 7,
-    bottom = 7,
-    widget = wibox.container.margin
-  },
-  spacing = 5,
-  layout  = wibox.layout.fixed.horizontal,
-}
-
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -103,16 +56,16 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.useless_gap = 8
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
-editor = os.getenv("EDITOR") or "nvim"
-editor_cmd = terminal .. " -e " .. editor
+local terminal = "kitty"
+local editor = os.getenv("EDITOR") or "nvim"
+local editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+local modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -137,7 +90,7 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
+local myawesomemenu = {
   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
   { "manual", terminal .. " -e man awesome" },
   { "edit config", editor_cmd .. " " .. awesome.conffile },
@@ -145,12 +98,12 @@ myawesomemenu = {
   { "quit", function() awesome.quit() end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+local mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
       { "open terminal", terminal }
     }
   })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
   menu = mymainmenu })
 
 -- Menubar configuration
@@ -158,11 +111,11 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
+local mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -204,18 +157,6 @@ local tasklist_buttons = gears.table.join(
     awful.client.focus.byidx(-1)
   end))
 
-  local function set_wallpaper(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-      local wallpaper = beautiful.wallpaper
-      -- If wallpaper is a function, call it with the screen
-      if type(wallpaper) == "function" then
-        wallpaper = wallpaper(s)
-      end
-      gears.wallpaper.maximized(wallpaper, s, true)
-    end
-  end
-
   local function focus_history_previous()
     awful.client.focus.history.previous()
     if client.focus then
@@ -227,13 +168,7 @@ local tasklist_buttons = gears.table.join(
     awful.client.focus.byidx(index)
   end
 
-  -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-  screen.connect_signal("property::geometry", set_wallpaper)
-
   awful.screen.connect_for_each_screen(function(s)
-    -- Wallpaper
-    set_wallpaper(s)
-
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
