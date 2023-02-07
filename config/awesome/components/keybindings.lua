@@ -28,7 +28,7 @@ keybindings.globalkeys = gears.table.join(
   awful.key({ modkey,           }, "s",      hotkeys_popup.show_help, {description="show help", group="awesome"}),
   awful.key({ modkey,           }, "Left",   awful.tag.viewprev, {description = "view previous", group = "tag"}),
   awful.key({ modkey,           }, "Right",  awful.tag.viewnext, {description = "view next", group = "tag"}),
-  awful.key({ modkey,           }, "Escape", function() awful.spawn.with_shell("xscreensaver-command -lock") end, {description = "Lock screen", group = "client"}),
+  awful.key({ modkey,           }, "Escape", function() awful.spawn.with_shell("betterlockscreen -l dim") end, {description = "Lock screen", group = "client"}),
 
   awful.key({ modkey,           }, "j", function () client_focus(1) end, {description = "focus next by index", group = "client"}),
   awful.key({ modkey,           }, "k", function () client_focus(-1) end, {description = "focus previous by index", group = "client"}),
@@ -45,6 +45,7 @@ keybindings.globalkeys = gears.table.join(
   awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end, {description = "open a terminal", group = "launcher"}),
   awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end, {description = "open firefox", group = "applications"}),
   awful.key({ modkey,           }, "t", function () awful.spawn("telegram-desktop") end, {description = "open telegram", group = "applications"}),
+  awful.key({ modkey,           }, "c", function () awful.spawn("cider") end, {description = "cider music player", group = "applications"}),
   awful.key({ modkey,           }, "\\", function () awful.spawn("spectacle") end, {description = "take a screenshot and copy it", group = "applications"}),
   awful.key({ modkey, "Control" }, "r", capi.awesome.restart, {description = "reload awesome", group = "awesome"}),
   awful.key({ modkey, "Shift"   }, "q", capi.awesome.quit, {description = "quit awesome", group = "awesome"}),
