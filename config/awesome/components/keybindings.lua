@@ -44,6 +44,7 @@ keybindings.globalkeys = gears.table.join(
   -- Standard program
   awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end, {description = "open a terminal", group = "launcher"}),
   awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end, {description = "open firefox", group = "applications"}),
+  awful.key({ modkey,           }, "t", function () awful.spawn("telegram-desktop") end, {description = "open telegram", group = "applications"}),
   awful.key({ modkey,           }, "\\", function () awful.spawn("spectacle") end, {description = "take a screenshot and copy it", group = "applications"}),
   awful.key({ modkey, "Control" }, "r", capi.awesome.restart, {description = "reload awesome", group = "awesome"}),
   awful.key({ modkey, "Shift"   }, "q", capi.awesome.quit, {description = "quit awesome", group = "awesome"}),
