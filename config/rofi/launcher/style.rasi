@@ -3,7 +3,7 @@ configuration {
 	modi:                       "drun";
     show-icons:                 true;
     display-drun:               "  Apps";
-    font:                       "JetBrainsMono Nerd Font 10";
+    font:                       "FiraCode Nerd Font 20";
     icon-theme:                 "Papirus";
     monitor: -1;
 }
@@ -17,7 +17,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       700px;
+    width:                       900px;
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;
@@ -104,8 +104,8 @@ listview {
 element {
     enabled:                     true;
     spacing:                     15px;
-    margin:                      0px;
-    padding:                     5px;
+    margin:                      8px;
+    padding:                     8px;
     border:                      0px;
     border-radius:               15px;
     border-color:                @selected;

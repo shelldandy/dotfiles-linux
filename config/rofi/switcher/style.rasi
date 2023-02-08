@@ -3,7 +3,7 @@ configuration {
 	modi:                       "window";
     show-icons:                 true;
     display-window:             "  Windows";
-    font:                       "JetBrainsMono Nerd Font 10";
+    font:                       "FiraCode Nerd Font 20";
     icon-theme:                 "Papirus";
     monitor: -1;
 }

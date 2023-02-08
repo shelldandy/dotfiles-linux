@@ -39,7 +39,6 @@ keybindings.globalkeys = gears.table.join(
   awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end, {description = "focus the previous screen", group = "screen"}),
   awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(1) end, {description = "focus the next screen", group = "screen"}),
   awful.key({ modkey,           }, "u", awful.client.urgent.jumpto, {description = "jump to urgent client", group = "client"}),
-  awful.key({ modkey,           }, "Tab", focus_history_previous, {description = "go back", group = "client"}),
 
   -- Standard program
   awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end, {description = "open a terminal", group = "launcher"}),
@@ -72,7 +71,9 @@ keybindings.globalkeys = gears.table.join(
     {description = "restore minimized", group = "client"}),
 
   -- Prompt
-  awful.key({ modkey },            "r",     function () awful.spawn.with_shell("rofi -show") end, {description = "app launcher", group = "launcher"}),
+  awful.key({ modkey },            "r",     function () awful.spawn.with_shell("~/.config/rofi/launcher/run.sh") end, {description = "app launcher", group = "launcher"}),
+  awful.key({ modkey },            "p",     function () awful.spawn.with_shell("~/.config/rofi/powermenu/run.sh") end, {description = "power menu", group = "launcher"}),
+  awful.key({ modkey },            "Tab",   function () awful.spawn.with_shell("~/.config/rofi/switcher/run.sh") end, {description = "switch apps", group = "launcher"}),
 
   awful.key({ modkey }, "x",
     function ()

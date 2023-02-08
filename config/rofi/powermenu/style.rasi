@@ -1,7 +1,7 @@
 // Configuration.
 configuration {
     show-icons:                 false;
-    font:                       "JetBrainsMono Nerd Font 10";
+    font: "FiraCode Nerd Font 18";
     monitor: -1;
 }
 
@@ -82,7 +82,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     15px;
     margin:                      0px;
     padding:                     0px;
@@ -108,7 +108,7 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        "JetBrainsMono Nerd Font 28";
+    font:                        "FiraCode Nerd Font 28";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
