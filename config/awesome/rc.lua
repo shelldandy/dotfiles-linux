@@ -14,7 +14,7 @@ local beautiful = require("beautiful")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Local components
-require("globals")
+require("components.globals")
 local keybindings = require("components.keybindings")
 local client = require("components.client")
 local layouts = require("components.layouts")
