@@ -1,8 +1,8 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.06 for shelldandy on Thu Feb  9 16:07:29 2023.
+# Written by xscreensaver-settings 6.06 for shelldandy on Thu Feb  9 16:32:46 2023.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	1:00:00
+timeout:	0:10:00
 cycle:		0:10:00
 lock:		True
 lockTimeout:	0:15:00
@@ -26,18 +26,18 @@ dpmsOff:	8:20:00
 grabDesktopImages:  True
 grabVideoFrames:    False
 chooseRandomImages: True
-imageDirectory:	~/Pictures/Wallpapers
+imageDirectory:	~/Pictures/Wallpapers/
 
 mode:		random
 selected:	112
 
 textMode:	program
 textLiteral:	XScreenSaver
-textFile:
+textFile:	
 textProgram:	fortune
 textURL:	https://en.wikipedia.org/w/index.php?title=Special:NewPages&feed=rss
-dialogTheme:	borderlessblack
-settingsGeom:	3856,61 4672,120
+dialogTheme:	darkgray
+settingsGeom:	16,61 4672,120
 
 programs:								      \
 				maze --root				    \n\
