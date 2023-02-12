@@ -1,4 +1,7 @@
 local menubar = require("menubar")
+-- Enable hotkeys help widget for VIM and other apps
+-- when client with a matching name is opened:
+require("awful.hotkeys_popup.keys")
 
 -- Gruvbox colors
 gb_green = "#b8bb26"
