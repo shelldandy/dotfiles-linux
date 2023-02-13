@@ -98,7 +98,7 @@ function ydp
   set currentPath (pwd)
   set url (xclip -o)
   cd ~/Downloads
-  youtube-dl $url
+  yt-dlp $url -v $argv
   cd $currentPath
 end
 
@@ -106,7 +106,7 @@ function yda
   set currentPath (pwd)
   set url (xclip -o)
   cd ~/Downloads
-  youtube-dl $url -x --audio-format mp3 --audio-quality 0
+  yt-dlp $url -x --audio-format mp3 --audio-quality 0 -v $argv
   cd $currentPath
 end
 
