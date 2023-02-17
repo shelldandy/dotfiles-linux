@@ -55,7 +55,7 @@ local globalkeys = gears.table.join(
 
   -- Prompt
   awful.key({ modkey },            "r",     function () awful.spawn.with_shell("~/.config/rofi/launcher/run.sh") end, {description = "app launcher", group = "launcher"}),
-  awful.key({ modkey },            "p",     function () awful.spawn.with_shell("~/.config/rofi/powermenu/run.sh") end, {description = "power menu", group = "launcher"}),
+  awful.key({ modkey, "Shift" },   "p",     function () awful.spawn.with_shell("~/.config/rofi/powermenu/run.sh") end, {description = "power menu", group = "launcher"}),
   awful.key({ modkey },            "Tab",   function () awful.spawn.with_shell("~/.config/rofi/switcher/run.sh") end, {description = "switch apps", group = "launcher"}),
 
   awful.key({ modkey }, "x",

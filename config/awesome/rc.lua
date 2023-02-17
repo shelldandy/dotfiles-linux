@@ -13,10 +13,10 @@ require("components.globals")
 -- Components
 require("components.layouts")
 require("components.error_handling")
-require("components.wibar")
 require("components.mousebindings")
 require("components.keybindings")
 require("components.client")
+require("components.screens")
 require("components.signals")
 
 -- {{{ Variable definitions
