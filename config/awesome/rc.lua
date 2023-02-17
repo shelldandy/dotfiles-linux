@@ -1,40 +1,19 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
-pcall(require, "luarocks.loader")
+require("globals")
 
--- Standard awesome library
-local gears = require("gears")
 local awful = require("awful")
-require("awful.autofocus")
--- Theme handling library
 local beautiful = require("beautiful")
--- Globals
-require("components.globals")
--- Components
-require("components.layouts")
-require("components.error_handling")
-require("components.mousebindings")
-require("components.keybindings")
-require("components.client")
-require("components.screens")
-require("components.signals")
+local desktop_utils = require("utils.desktop")
+local config = require("config")
 
--- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
--- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init(gears.filesystem.get_configuration_dir() .. "gruvbox-theme/theme.lua")
 
--- Padding between windows
-beautiful.useless_gap = 8
+awful.util.shell = config.apps.shell
+desktop_utils.terminal = config.apps.terminal
 
--- Autostart Applications
-local autorun = true
-local shell_autorun_apps = {
-  "~/.bin/autorun.sh",
-}
+beautiful.init(config.places.theme .. "/theme.lua")
 
-if autorun then
-  for app = 1, #shell_autorun_apps do
-    awful.spawn.with_shell(shell_autorun_apps[app])
-  end
-end
+require("core")
+require("services")
+require("ui")
+
+collectgarbage("setpause", 110)
+collectgarbage("setstepmul", 1000)
