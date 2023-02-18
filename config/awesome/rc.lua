@@ -15,5 +15,7 @@ require("core")
 require("services")
 require("ui")
 
+awful.spawn.with_shell("~/.bin/autorun.sh")
+
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
