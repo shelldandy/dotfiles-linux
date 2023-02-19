@@ -29,7 +29,7 @@ theme.useless_gap = dpi(6)
 ---------------------------------------------------------------------------------------------------
 
 theme.font_name = "JetBrainsMono Nerd Font"
-theme.font_size = 11
+theme.font_size = 10
 
 function theme.build_font(size_factor, style, name)
     return (name or theme.font_name) ..
@@ -150,7 +150,7 @@ theme.fg_disabled = theme.common.foreground_50
 
 ---------------------------------------------------------------------------------------------------
 
-theme.border_width = dpi(3)
+theme.border_width = dpi(2)
 theme.border_color_normal = theme.common.background
 theme.border_color_active = theme.common.primary
 theme.border_color_urgent = theme.common.urgent_bright
@@ -175,7 +175,7 @@ theme.snap_bg = "#ff0000"
 theme.snapper_gap = theme.useless_gap
 theme.snap_border_width = 8 -- (dpi is applied automatically)
 theme.snap_shape = function(cr, width, height)
-    gshape.rounded_rect(cr, width, height, dpi(16))
+    gshape.rounded_rect(cr, width, height, dpi(12))
 end
 
 
@@ -188,11 +188,11 @@ theme.screenshot_area_color = tcolor.change(theme.common.primary, { alpha = 0.20
 ---------------------------------------------------------------------------------------------------
 
 theme.wibar = {
-    spacing = dpi(12),
-    item_height = dpi(30),
+    spacing = dpi(8),
+    item_height = dpi(24),
     padding = {
-        left = dpi(16),
-        right = dpi(16),
+        left = dpi(10),
+        right = dpi(10),
         top = dpi(8),
         bottom = dpi(8),
     },
