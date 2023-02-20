@@ -6,7 +6,7 @@ local filesystem = require("gears.filesystem")
 local config = {}
 
 config.features = {
-    screenshot_tools = false,
+    screenshot_tools = true,
     torrent_widget = false,
     weather_widget = false,
     redshift_widget = false,

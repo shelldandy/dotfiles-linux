@@ -78,8 +78,8 @@ end
 binding.add_global_range {
 
     binding.new {
-        modifiers = { mod.super, mod.control, },
-        triggers = "j",
+        modifiers = { mod.super },
+        triggers = "p",
         path = "system",
         description = "power menu",
         on_press = function()
