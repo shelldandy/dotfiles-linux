@@ -17,7 +17,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       900px;
+    width:                       1200px;
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;
@@ -91,7 +91,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    spacing:                     5px;
+    spacing:                     8px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px;
@@ -103,7 +103,7 @@ listview {
 // Items in the list.
 element {
     enabled:                     true;
-    spacing:                     15px;
+    spacing:                     20px;
     margin:                      8px;
     padding:                     8px;
     border:                      0px;

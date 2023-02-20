@@ -150,7 +150,7 @@ binding.add_global_range {
         triggers = "a",
         path = "launcher",
         description = "launcher",
-        on_press = function() awful.spawn(config.actions.show_launcher) end,
+        on_press = function() awful.spawn.with_shell(config.actions.show_launcher) end,
     },
 
     binding.new {

@@ -49,7 +49,8 @@ config.power = {
 
 config.actions = {
     qr_code_clipboard = "qrclip",
-    show_launcher = "rofi -show",
+    show_launcher = "~/.config/rofi/launcher/run.sh",
+    show_power_menu = "~/.config/rofi/powermenu/run.sh",
     show_emoji_picker = config.places.config .. "/rofi/emoji-run.sh",
 }
 
