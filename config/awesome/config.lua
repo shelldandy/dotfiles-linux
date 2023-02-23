@@ -9,7 +9,6 @@ config.features = {
     screenshot_tools = true,
     torrent_widget = false,
     weather_widget = false,
-    redshift_widget = false,
     wallpaper_menu = true,
 }
 
