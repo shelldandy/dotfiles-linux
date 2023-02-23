@@ -26,7 +26,7 @@ function tags.build_tag(args)
         layout = awful.layout.layouts[1],
         gap_single_client = false,
         master_fill_policy = "master_width_factor",
-        master_width_factor = 0.8,
+        master_width_factor = 0.9,
     }, args or {})
 end
 
