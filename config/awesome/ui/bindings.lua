@@ -334,13 +334,13 @@ binding.add_global_range {
     },
 
 
-    binding.new {
-        modifiers = { mod.super, },
-        triggers = "q",
-        path = "action",
-        description = "generate QR code from clipboard",
-        on_press = function() awful.spawn(config.actions.qr_code_clipboard) end,
-    },
+    --binding.new {
+        --modifiers = { mod.super, },
+        --triggers = "q",
+        --path = "action",
+        --description = "generate QR code from clipboard",
+        --on_press = function() awful.spawn(config.actions.qr_code_clipboard) end,
+    --},
 
     binding.new {
         modifiers = { mod.super },
@@ -510,8 +510,8 @@ end
 binding.add_client_range {
 
     binding.new {
-        modifiers = { mod.super, mod.control, },
-        triggers = "Escape",
+        modifiers = { mod.super },
+        triggers = "q",
         path = "client",
         description = "quit",
         order = 0,
