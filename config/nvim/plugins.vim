@@ -18,10 +18,11 @@ if HasPlug('ale')
   let g:ale_linters['html'] = ['htmlhint']
 
   let g:ale_fixers = {}
-  let g:ale_fixers['javascript'] = ['eslint']
+  let g:ale_fixers['javascript'] = ['prettier', 'eslint']
   let g:ale_fixers['jsx'] = ['eslint']
   let g:ale_fixers['scss'] = ['stylelint']
-  let g:ale_fixers['typescript'] = ['tslint']
+  let g:ale_fixers['typescript'] = ['prettier', 'tslint']
+  let g:ale_fixers['typescriptreact'] = ['prettier', 'tslint']
   let g:ale_fixers['python'] = ['black']
   let g:ale_fixers['sql'] = ['pgformatter']
 endif
