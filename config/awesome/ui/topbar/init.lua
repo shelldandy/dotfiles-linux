@@ -6,11 +6,7 @@ local capi = {
 local awful = require("awful")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
-local dpi = dpi
 local config = require("config")
-local binding = require("io.binding")
-local mod = binding.modifier
-local btn = binding.button
 local layoutbox_widget = require("ui.topbar.layoutbox")
 local clientlist_widget = require("ui.topbar.clientlist")
 local taglist_widget = require("ui.topbar.taglist")
@@ -20,7 +16,6 @@ local network_widget = require("ui.topbar.network")
 local volume_widget = require("ui.topbar.volume")
 local weather_widget = require("ui.topbar.weather")
 local datetime_widget = require("ui.topbar.datetime")
-local tools_widget = require("ui.topbar.tools")
 local power_widget = require("ui.topbar.power")
 
 
@@ -82,11 +77,6 @@ capi.screen.connect_signal("request::desktop_decoration", function(screen)
 
     local middle = wibar:get_children_by_id("#middle")[1]
     middle:add(screen.topbar.taglist)
-
-    local right_container = wibar:get_children_by_id("#right_container")[1]
-    if is_primary then
-        right_container:insert(1, tools_widget.new(wibar))
-    end
 
     local right = wibar:get_children_by_id("#right")[1]
     if is_primary then
