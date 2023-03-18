@@ -2,22 +2,38 @@
 
 import sys
 import argparse
+from pathlib import Path
+import re
 
 def run():
   parser = argparse.ArgumentParser(
     prog="rarbgsubmove",
     description="Extract subtitles from a directory",
-    epilog="lol"
+    epilog="@shelldandy script"
   )
-  parser.add_argument("directory")
+  parser.add_argument("dir")
   parser.add_argument("-l", "--language", help="What language to download. Default spanish then english")
   parser.add_argument("-v", "--verbose")
 
   args = parser.parse_args()
 
-  if not args:
-    args = ["-"]
-    print(args)
+  print(args)
+
+  directory = Path(args.dir)
+  subs_dir = Path(args.dir, "Subs")
+
+  if not directory.is_dir() or not subs_dir.is_dir():
+    print("directory - % s does not exist" % directory)
+    exit()
+
+  subs = list(directory.glob("**/*.srt"))
+
+  for sub in subs:
+    if re.search(r"(Spanish|English)\.srt", sub.name):
+      # TODO Grab parent dirname
+      # TODO Rename and move subtitle
+      print(sub.name)
+      print(sub.parent)
 
 if __name__ == '__main__':
     sys.exit(run())
