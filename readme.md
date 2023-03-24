@@ -41,3 +41,12 @@ sudo /opt/resolve/bin/resolve
 ```
 
 That way you'll be able to input the activation code and the app will work normally from that point forward without sudo
+
+
+## Keyboard with accents
+
+Alt+a = á
+
+```sh
+localectl --no-convert set-x11-keymap us "" altgr-intl
+```

@@ -4,11 +4,15 @@ display_help=false
 # Turn monitors off
 GameOn() {
   xrandr --output HDMI-0 --off --output DP-2 --off
+  hueadm group 4 off
+  hueadm light 9 colorloop
   echo "Game on!"
 }
 
 GameOff() {
   xrandr --output DP-2 --mode 3840x2160 --left-of DP-0 --output HDMI-0 --mode 3840x2160 --right-of DP-0
+  hueadm group 4 on
+  hueadm light 9 off
   echo "Game off!"
 }
 

@@ -18,8 +18,6 @@ nitrogen --restore
 xscreensaver -no-splash &
 # Compositor (window animations)
 picom --experimental-backends
-# Compose key for ñ or accents á
-setxkbmap -option compose:ralt
 # Set Display Power Management Signaling aka
 # monitors to switch off after a while
 xset +dpms
