@@ -12,12 +12,8 @@ def run():
     epilog="@shelldandy script"
   )
   parser.add_argument("dir")
-  parser.add_argument("-l", "--language", help="What language to download. Default spanish then english")
-  parser.add_argument("-v", "--verbose")
 
   args = parser.parse_args()
-
-  print(args)
 
   directory = Path(args.dir)
   subs_dir = Path(args.dir, "Subs")
@@ -28,12 +24,21 @@ def run():
 
   subs = list(directory.glob("**/*.srt"))
 
+  renames = []
   for sub in subs:
-    if re.search(r"(Spanish|English)\.srt", sub.name):
-      # TODO Grab parent dirname
-      # TODO Rename and move subtitle
-      print(sub.name)
-      print(sub.parent)
+    if re.search(r"Spanish.srt", sub.name):
+      sub_name = "% s.es.srt" % sub.parent.name
+      renames.append([sub, sub_name])
+
+    if re.search(r"English.srt", sub.name):
+      sub_name = "% s.en.srt" % sub.parent.name
+      renames.append([sub, sub_name])
+
+  for rename in renames:
+    sub, sub_name = rename
+    new_file = Path(directory, sub_name)
+    if not new_file.exists():
+      sub.rename(new_file)
 
 if __name__ == '__main__':
     sys.exit(run())
