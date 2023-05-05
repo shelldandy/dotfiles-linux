@@ -23,6 +23,7 @@ local function parse_color(color)
         end, channels), ",")
 end
 
+-- maim -s | xclip -selection clipboard -t image/png
 function screenshot.take(args)
     args = args or {}
 
