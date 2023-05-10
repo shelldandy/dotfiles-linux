@@ -46,3 +46,7 @@ node_modules
 # Python
 *.pyc
 __pycache__
+
+# Secrets
+*.env
+secrets.sh

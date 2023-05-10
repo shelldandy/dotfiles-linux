@@ -1,5 +1,6 @@
 # Colors
 source ~/.themes/gruvbox-dark.sh
+source ~/.secrets.sh
 
 # Exports
 set -x TERM xterm-256color
