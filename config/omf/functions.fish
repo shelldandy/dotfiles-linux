@@ -14,7 +14,7 @@ function dc       ; docker-compose $argv ; end
 function gs       ; git status ; end
 function gaa      ; git add . ; end
 function oa       ; open -a $argv ; end
-function rm       ; trash-empty $argv ; end
+function rm       ; trash-put $argv ; end
 
 function ys       ; yarn add $argv ; end
 function yd       ; yarn add --dev $argv ; end

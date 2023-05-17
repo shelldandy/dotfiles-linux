@@ -51,6 +51,10 @@ Plug 'romgrk/barbar.nvim'                                           " IDE-like b
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 
+" To help with merges
+Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
+
 " Vim Telescope (Fuzzy finder)
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
