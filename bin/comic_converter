@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+# This script converts a series of images into a cbz files
+
+directory=$1
+
+echo "Converting $directory"
+
+if [ ! -d "$directory" ]; then
+    echo "Directory $directory does not exist"
+    exit 1
+fi
+
+cd "$directory" || exit
+
+for subdir in */; do
+    if [ -d "$subdir" ]; then
+      echo "Converting $subdir"
+      zip -r "${subdir%/}.cbz" "$subdir*jpg"
+    fi
+done
