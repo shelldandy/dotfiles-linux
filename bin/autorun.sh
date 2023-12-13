@@ -11,7 +11,7 @@
 ##############################################
 
 # Set our displays
-xrandr --output DP-2 --mode 3840x2160 --left-of DP-0 --output HDMI-0 --mode 3840x2160 --right-of DP-0 --output DP-0 --mode 3840x2160 --primary
+xrandr --output HDMI-0 --mode 3840x2160 --primary --output DP-0 --mode 3840x2160 --left-of HDMI-0 --output DP-2 --mode 3840x2160 --right-of HDMI-0
 # Wallpapers
 nitrogen --restore
 # Screensaver
