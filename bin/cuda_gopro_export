@@ -16,8 +16,8 @@ VERSION=1.0
 
 # Check if input file exists
 if [[ ! -f "$1" ]]; then
-    echo "Input file not found!"
-    exit 1
+  echo "Input file not found!"
+  exit 1
 fi
 
 DEBUG=1
@@ -28,9 +28,9 @@ VERBOSE=info
 HWACCEL=cuda
 VIDEO_CODEC=hevc_nvenc
 if [[ $CUSTOM_BITRATE ]]; then
-    VIDEO_BITRATE=$CUSTOM_BITRATE
+  VIDEO_BITRATE=$CUSTOM_BITRATE
 else
-    VIDEO_BITRATE=60M # Same bitrate GoPro 7 4k footages comes at
+  VIDEO_BITRATE=60M # Same bitrate GoPro 7 4k footages comes at
 fi
 AUDIO_CODEC=aac
 AUDIO_BITRATE=128k
@@ -45,11 +45,11 @@ FFMPEG_PARAM+=('-v' "$VERBOSE")
 FFMPEG_PARAM+=('-c:v' "$VIDEO_CODEC")
 
 if [[ $RESIZE ]]; then
-    if [[ $RESIZE == "1080" ]]; then
-        FFMPEG_PARAM+=('-vf' "scale=1920:1080")
-    else
-        FFMPEG_PARAM+=('-vf' "scale=$RESIZE")
-    fi
+  if [[ $RESIZE == "1080" ]]; then
+    FFMPEG_PARAM+=('-vf' "scale=1920:1080")
+  else
+    FFMPEG_PARAM+=('-vf' "scale=$RESIZE")
+  fi
 fi
 
 FFMPEG_PARAM+=('-b:v' "$VIDEO_BITRATE")
@@ -67,26 +67,26 @@ PASS_2_PARAMS+=('-c:a' "$AUDIO_CODEC")
 PASS_2_PARAMS+=('-b:a' "$AUDIO_BITRATE")
 
 if [[ $RESIZE ]]; then
-    PASS_2_PARAMS+=("$NAME-$RESIZE.mp4")
+  PASS_2_PARAMS+=("$NAME-$RESIZE.mp4")
 else
-    PASS_2_PARAMS+=("$NAME-cuda.mp4")
+  PASS_2_PARAMS+=("$NAME-cuda.mp4")
 fi
 
 FN_1_ARGS="${FFMPEG_PARAM[@]} ${PASS_1_PARAMS[@]}"
 FN_2_ARGS="${FFMPEG_PARAM[@]} ${PASS_2_PARAMS[@]}"
 
 if [[ $DEBUG -ne 0 ]]; then
-    echo "[[ NAME ]] - ${NAME}"
-    echo
-    echo "[[ FN_1_ARGS ]] ${FN_1_ARGS}"
-    echo
-    echo "[[ FN_2_ARGS ]] ${FN_2_ARGS}"
+  echo "[[ NAME ]] - ${NAME}"
+  echo
+  echo "[[ FN_1_ARGS ]] ${FN_1_ARGS}"
+  echo
+  echo "[[ FN_2_ARGS ]] ${FN_2_ARGS}"
 fi
 
 ffmpeg $FN_1_ARGS && ffmpeg $FN_2_ARGS
 
 # Check if input file exists
 if [[ -f "ffmpeg2pass-0.log" ]]; then
-    echo "Cleaning up"
-    rm ffmpeg2pass-0.log
+  echo "Cleaning up"
+  rm ffmpeg2pass-0.log
 fi

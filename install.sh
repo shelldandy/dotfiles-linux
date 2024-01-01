@@ -12,7 +12,7 @@ sudo apt install snapd
 
 # Vim Plug
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug
+  https://raw.githubusercontent.com/junegunn/vim-plug
 
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
