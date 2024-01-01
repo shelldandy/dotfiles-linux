@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-rofi                                \
-    -show window                    \
-    -config "$HOME/.config/rofi/switcher/style.rasi"
+rofi \
+  -show window \
+  -config "$HOME/.config/rofi/switcher/style.rasi"

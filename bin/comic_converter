@@ -7,15 +7,15 @@ directory=$1
 echo "Converting $directory"
 
 if [ ! -d "$directory" ]; then
-    echo "Directory $directory does not exist"
-    exit 1
+  echo "Directory $directory does not exist"
+  exit 1
 fi
 
 cd "$directory" || exit
 
 for subdir in */; do
-    if [ -d "$subdir" ]; then
-      echo "Converting $subdir"
-      zip -r "${subdir%/}.cbz" "$subdir*jpg"
-    fi
+  if [ -d "$subdir" ]; then
+    echo "Converting $subdir"
+    zip -r "${subdir%/}.cbz" "$subdir*jpg"
+  fi
 done

@@ -18,8 +18,8 @@ VERSION=1.0
 
 # Check if input file exists
 if [[ ! -f "$1" ]]; then
-    echo "Input file not found!"
-    exit 1
+  echo "Input file not found!"
+  exit 1
 fi
 
 DEBUG=1
@@ -36,9 +36,9 @@ AUDIO_CODEC=pcm_s16le
 COPY_GOPROMETADATA=1
 
 # Following handler_names has a tab character at the beginning and 2 spaces at the end
-GOPROTCD="GoPro TCD  "
-GOPROMET="GoPro MET  "
-GOPROSOS="GoPro SOS  "
+GOPROTCD=" GoPro TCD  "
+GOPROMET=" GoPro MET  "
+GOPROSOS=" GoPro SOS  "
 
 #####
 ##### End of user variables
