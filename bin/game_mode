@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
+4KM="--mode 3840x2160 --rate 60.00"
 display_help=false
 # Turn monitors off
 GameOn() {
@@ -8,7 +9,7 @@ GameOn() {
 }
 
 GameOff() {
-  xrandr --output HDMI-0 --mode 3840x2160 --primary --output DP-0 --mode 3840x2160 --left-of HDMI-0 --output DP-2 --mode 3840x2160 --right-of HDMI-0
+  xrandr --output HDMI-0 --primary $(echo $4KM) --output DP-0 $(echo $4KM) --left-of HDMI-0 --output DP-2 $(echo $4KM) --right-of HDMI-0
   echo "Game off!"
 }
 
@@ -25,39 +26,48 @@ Help() {
 }
 
 while getopts "hyn-:" option; do
-   case $option in
-      h)
-        display_help=true;;
-      y)
-        GameOn
-        exit;;
-      n)
-        GameOff
-        exit;;
-      -) case "${OPTARG}" in
-            help)
-              display_help=true;;
-            yes)
-              GameOn
-              exit;;
-            on)
-              GameOn
-              exit;;
-            no)
-              GameOff
-              exit;;
-            off)
-              GameOff
-              exit;;
-            *) if [ "$OPTERR" = 1 ] && [ "${opt:0:1}" != ":" ]; then
-                      echo "Unknown option --${OPTARG}" >&2
-                      exit 1
-              fi ;;
-          esac ;;
-      *) # Invalid option
-         echo "Error: Invalid option"
-         exit;;
-   esac
+  case $option in
+  h)
+    display_help=true
+    ;;
+  y)
+    GameOn
+    exit
+    ;;
+  n)
+    GameOff
+    exit
+    ;;
+  -) case "${OPTARG}" in
+    help)
+      display_help=true
+      ;;
+    yes)
+      GameOn
+      exit
+      ;;
+    on)
+      GameOn
+      exit
+      ;;
+    no)
+      GameOff
+      exit
+      ;;
+    off)
+      GameOff
+      exit
+      ;;
+    *) if [ "$OPTERR" = 1 ] && [ "${opt:0:1}" != ":" ]; then
+      echo "Unknown option --${OPTARG}" >&2
+      exit 1
+    fi ;;
+    esac ;;
+  *) # Invalid option
+    echo "Error: Invalid option"
+    exit
+    ;;
+  esac
 done
 
 if [[ $display_help == true ]]; then
