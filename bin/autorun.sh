@@ -10,8 +10,10 @@
 # by @shelldandy
 ##############################################
 
+4KM="--mode 3840x2160 --rate 60.00"
+
 # Set our displays
-xrandr --output HDMI-0 --mode 3840x2160 --primary --output DP-0 --mode 3840x2160 --left-of HDMI-0 --output DP-2 --mode 3840x2160 --right-of HDMI-0
+xrandr --output HDMI-0 --primary $(echo $4KM) --output DP-0 $(echo $4KM) --left-of HDMI-0 --output DP-2 $(echo $4KM) --right-of HDMI-0
 # Wallpapers
 nitrogen --restore
 # Screensaver
