@@ -60,3 +60,7 @@ abbr gf cd ~/git
 make_completion g git
 make_completion v nvim
 make_completion dc docker-compose
+
+### RANDOM COLOR SCRIPT ###
+colorscript random
+
