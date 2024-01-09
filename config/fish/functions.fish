@@ -173,3 +173,8 @@ end
 function coins
     curl "https://plaintextco.in/?term=true&per_page=10&cols=2"
 end
+
+
+function screenshot
+    maim --select --quiet --hidecursor --bordersize 4 | xclip -selection clipboard -t image/png
+end
