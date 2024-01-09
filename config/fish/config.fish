@@ -63,4 +63,3 @@ make_completion dc docker-compose
 
 ### RANDOM COLOR SCRIPT ###
 colorscript random
-

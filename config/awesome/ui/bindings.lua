@@ -126,7 +126,7 @@ binding.add_global_range({
 
   binding.new({
     modifiers = { mod.super },
-    triggers = "h",
+    triggers = "/",
     path = "awesome",
     description = "keyboard shortcuts",
     on_press = function()
@@ -507,7 +507,7 @@ if config.features.screenshot_tools then
       path = { "screenshot", "copy to clipboard" },
       description = "current window",
       on_press = function()
-        services.screenshot.take({ mode = "window", output = "clipboard" })
+        awful.spawn("maim --select --quiet --hidecursor --bordersize 4 | xclip -selection clipboard -t image/png")
       end,
     }),
   })
@@ -624,6 +624,16 @@ binding.add_client_range({
   binding.new({
     modifiers = { mod.super },
     triggers = binding.group.arrows,
+    path = "client",
+    description = "change focus",
+    on_press = function(trigger, client)
+      awful.client.focus.global_bydirection(trigger.direction, client)
+    end,
+  }),
+
+  binding.new({
+    modifiers = { mod.super },
+    triggers = binding.group.vim_arrows,
     path = "client",
     description = "change focus",
     on_press = function(trigger, client)
