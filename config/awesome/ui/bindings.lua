@@ -652,8 +652,28 @@ binding.add_client_range({
   }),
 
   binding.new({
+    modifiers = { mod.shift, mod.super },
+    triggers = binding.group.vim_arrows,
+    path = "client",
+    description = "move",
+    on_press = function(trigger, client)
+      hclient.move(client, trigger.direction)
+    end,
+  }),
+
+  binding.new({
     modifiers = { mod.control, mod.shift, mod.super },
     triggers = binding.group.arrows,
+    path = "client",
+    description = "resize",
+    on_press = function(trigger, client)
+      hclient.resize(client, trigger.direction)
+    end,
+  }),
+
+  binding.new({
+    modifiers = { mod.control, mod.shift, mod.super },
+    triggers = binding.group.vim_arrows,
     path = "client",
     description = "resize",
     on_press = function(trigger, client)
