@@ -35,7 +35,7 @@ fi
 AUDIO_CODEC=aac
 AUDIO_BITRATE=128k
 
-FFMPEG_PARAM=('-vsync' "0")
+#FFMPEG_PARAM=('-fps_mode' "0")
 FFMPEG_PARAM+=('-hwaccel' "$HWACCEL")
 FFMPEG_PARAM+=('-hwaccel_output_format' "$HWACCEL")
 FFMPEG_PARAM+=('-y')
