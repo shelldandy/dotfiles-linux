@@ -20,4 +20,12 @@ return {
       mappings = "<leader>gy",
     },
   },
+  -- Useless but fun screensaver plugin
+  {
+    "Eandrju/cellular-automaton.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>fml", "<cmd>CellularAutomaton make_it_rain<cr>", desc = "Make it rain" },
+    },
+  },
 }
