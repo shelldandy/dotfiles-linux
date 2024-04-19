@@ -156,7 +156,7 @@ binding.add_global_range({
 
   binding.new({
     modifiers = { mod.super },
-    triggers = "a",
+    triggers = "space",
     path = "launcher",
     description = "launcher",
     on_press = function()
@@ -226,7 +226,7 @@ binding.add_global_range({
 
   binding.new({
     modifiers = { mod.super, mod.control },
-    triggers = "space",
+    triggers = "a",
     path = "layout",
     description = "select next layout",
     on_press = function()
@@ -236,7 +236,7 @@ binding.add_global_range({
 
   binding.new({
     modifiers = { mod.shift, mod.super, mod.control },
-    triggers = "space",
+    triggers = "a",
     path = "layout",
     description = "select previous layout",
     on_press = function()
@@ -713,7 +713,7 @@ binding.add_client_range({
 
   binding.new({
     modifiers = { mod.super },
-    triggers = "space",
+    triggers = "a",
     path = { "client", "state" },
     description = "toggle floating/tiling",
     order = 0,
