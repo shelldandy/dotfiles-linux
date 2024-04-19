@@ -5,7 +5,6 @@ local beautiful = require("beautiful")
 local desktop_utils = require("utils.desktop")
 local config = require("config")
 
-
 awful.util.shell = config.apps.shell
 desktop_utils.terminal = config.apps.terminal
 
